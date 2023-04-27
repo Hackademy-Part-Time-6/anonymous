@@ -24,6 +24,45 @@
               <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
+
+
+              {{-- Acciones para registrarse --}}
+
+
+              @guest
+               
+                @if(Route::has('login'))
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route("login")}}">
+                      <span>
+                        Entrar
+                      </span>
+                    </a>
+                  </li>
+                @endif
+
+                @if(Route::has('register'))
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route("register")}}">
+                    <span>
+                      Registrar
+                    </span>
+                  </a>
+                </li>
+              @endif
+
+
+                @else
+
+                <li class="nav-item">
+                  <form action="{{route("logout")}}" id="logoutForm" method="POST">
+                    @csrf
+                  </form>
+                  <a href="#" id="logoutBtn" class="nav-link">Salir</a>
+                </li>
+
+              @endguest
+
             </ul>
           </li>
         </ul>
