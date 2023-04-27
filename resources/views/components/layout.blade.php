@@ -11,7 +11,7 @@
     {{ $style ?? '' }}
 </head>
 <body>
-    <x-navar/>
+    <x-navbar/>
     {{ $slot }}
     <x-footer/>
     @vite(['resources/js/app.js'])
