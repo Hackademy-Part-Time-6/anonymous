@@ -8,7 +8,7 @@
     
     @livewireStyles
     @vite(['resources/css/app.css'])
-    @vite(['resources/css/my_style.css'])
+   
 
     {{ $style ?? '' }}
 </head>

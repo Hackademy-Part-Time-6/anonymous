@@ -18,7 +18,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Categorias
+              Login
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             
@@ -58,7 +58,13 @@
                   </form>
                   <a href="#" id="logoutBtn" class="nav-link">Salir</a>
                 </li>
-
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route("ads.create")}}">
+                    <span>
+                      Crear Anuncio
+                    </span>
+                  </a>
+                </li>
               @endguest
 
             </ul>
