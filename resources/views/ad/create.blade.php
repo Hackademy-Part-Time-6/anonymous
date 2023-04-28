@@ -14,9 +14,4 @@
              </div>
         </div>
     </div>
-
-<div>
-    <h1>Create new Ad</h1>
-</div>
-
 </x-layout>
