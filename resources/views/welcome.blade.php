@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name='title'>AnonymousHomepage</x-slot>
-    <div class="container">
+    <div id="" class="container d-flex justify-content-center align-items-center encabezado">
         <h1>Bienvenido a Anonymous</h1>
     </div>
 </x-layout>

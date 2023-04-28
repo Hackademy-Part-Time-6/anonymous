@@ -2,8 +2,8 @@
     <x-slot name="title">Rapido - Registro</x-slot>
     <!-- ===== REGISTER ===== -->
     <div class="container-fluid bg-accent vh-100">
-        <div class="row mb-5 pb-5">
-            <div class="col-12 col-md-8 ms-5">
+        <div class="row p-5 d-flex justify-content-end">
+            <div class="col-12">
                 <div class="d-flex flex-column align-items-center">
                 <div class="form-content justify-content-center mb-5 pb-5">
                     <!-- FORM TITLE -->
