@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ?? 'Anonymous' }}</title>
     
+    @livewireStyles
     @vite(['resources/css/app.css'])
     @vite(['resources/css/my_style.css'])
 
@@ -15,6 +16,7 @@
     <x-nav/>
     {{ $slot }}
     <x-footer/>
+    @livewireStyles
     @vite(['resources/js/app.js'])
     {{ $script ?? '' }}
 
