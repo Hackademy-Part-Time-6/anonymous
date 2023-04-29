@@ -33,14 +33,14 @@
 
                     {{-- Email --}}
 
-                    <div class="space-around my-2 ">
+                    <div class="space-around my-3 ">
                         <input type="email"  name="email" class="form-control forms_field-input " id="email" placeholder="Tu correo" data-rule="minlen:4" data-msg="Por favor cuatros carateres" />
                         <div class="validate"></div>
                     </div>
 
                         {{-- Password --}}
  
-                        <div class="space-around my-2">
+                        <div class="space-around my-3">
 
                             <input type="password" name="password" class="form-control forms_field-input" id="password" placeholder="Contraseña" data-rule="minlen:4" data-msg="Por favor cuatros carateres" />
 
@@ -58,7 +58,7 @@
                 <p class="my-3">
                     ¿Aun no eres de los nuestros?
                     <a href="{{route("register")}}" class="btn ntn-info btn-sm ms-2">
-                       <b>¿Registrate!</b>
+                       <b>¡Registrate!</b>
                     </a>
                 </p>
 

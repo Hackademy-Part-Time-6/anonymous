@@ -62,8 +62,8 @@
                     </form>
                     <div class="form-link d-flex justify-content-center">
                         <p class="text-dark mt-2">¿Ya eres de los nuestros?</p>
-                        <a class="text text-decoration-none ps-2" href="{{route('login')}}">
-                            <u>¡Entra ya!</u></a>
+                        <a class="btn ntn-info btn-sm ms-2" href="{{route('login')}}">
+                            <b>¡Entra ya!</b></a>
                     </div>
                 </div>
                 </div>

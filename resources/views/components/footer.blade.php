@@ -5,32 +5,32 @@
       <section class="mb-4">
         <!-- Facebook -->
         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-facebook-f"></i
+          ><i class="bi bi-facebook"></i
         ></a>
   
         <!-- Twitter -->
         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-twitter"></i
+          ><i class="bi bi-twitter"></i
         ></a>
   
         <!-- Google -->
         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-google"></i
+          ><i class="bi bi-google"></i
         ></a>
   
         <!-- Instagram -->
         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-instagram"></i
+          ><i class="bi bi-instagram"></i
         ></a>
   
         <!-- Linkedin -->
         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-linkedin-in"></i
+          ><i class="bi bi-linkedin"></i
         ></a>
   
         <!-- Github -->
         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-github"></i
+          ><i class="bi bi-github"></i
         ></a>
       </section>
       <!-- Section: Social media -->
@@ -39,8 +39,8 @@
   
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+      © 2023 Copyright:
+      <a class="text-white" href="{{ route('home') }}">Anonymuos.com</a>
     </div>
     <!-- Copyright -->
   </footer>
