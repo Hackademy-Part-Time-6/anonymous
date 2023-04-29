@@ -1,6 +1,17 @@
 @import '~bootstrap/dist/css/bootstrap';
 
-.encabezado{
-    background-color: #ededed;
-    height: 220px;
+body{
+    background-color: #d1d0d0;
+    height: 100%;
+}
+
+.ref1{
+    background-color: #bebebe;
+}
+
+.ref2{
+    background-color: #484848;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }

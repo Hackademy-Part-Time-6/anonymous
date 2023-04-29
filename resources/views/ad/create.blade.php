@@ -3,9 +3,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        nuevo anuncio
+                <div class="card bg-secondary text-white">
+                    <div class="card-header bg-secondary text-white text-center">
+                        NUEVO ANUNCIO
                     </div>
                     <div class="card-body">
                         <livewire:create-ad/>

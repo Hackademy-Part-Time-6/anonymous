@@ -45,7 +45,7 @@
                 @enderror
         </div>
         <div class="my-3">
-        <button type="submit" class="btn btn-info">Crear</button>
+        <button type="submit" class="btn bg-warning">Crear</button>
         </div>
         </form>
         

@@ -3,9 +3,9 @@
     <x-slot name="title">Anonymous - Login</x-slot>
 
     {{-- Form Login --}}
-    <div class="container-fluid mt-2">
-        <div class="row p-5">
-            <div class="col-12 col-md-6 offset-md-3">
+    <div class="container-fluid mt-2 ">
+        <div class="row p-5 ">
+            <div class="col-12 col-md-6 offset-md-3 ">
                 {{-- Form Title --}}
 
                 <h2 class="form-title space-around">Iniciar Sesiòn</h2>
@@ -28,13 +28,13 @@
 
                 {{-- Form Fields --}}
 
-                <form action="/login" method="POST" role="form" class="form-control">
+                <form action="/login" method="POST" role="form" class="form-control bg-secondary text-white">
                     @csrf
 
                     {{-- Email --}}
 
-                    <div class="space-around my-2">
-                        <input type="email"  name="email" class="form-control forms_field-input" id="email" placeholder="Tu correo" data-rule="minlen:4" data-msg="Por favor cuatros carateres" />
+                    <div class="space-around my-2 ">
+                        <input type="email"  name="email" class="form-control forms_field-input " id="email" placeholder="Tu correo" data-rule="minlen:4" data-msg="Por favor cuatros carateres" />
                         <div class="validate"></div>
                     </div>
 
@@ -42,7 +42,7 @@
  
                         <div class="space-around my-2">
 
-                            <input type="password" name="password" class="form-control forms_field-input" id="password" placeholder="Tu correo" data-rule="minlen:4" data-msg="Por favor cuatros carateres" />
+                            <input type="password" name="password" class="form-control forms_field-input" id="password" placeholder="Contraseña" data-rule="minlen:4" data-msg="Por favor cuatros carateres" />
 
                             <div class="validate"></div>
 
@@ -50,7 +50,7 @@
 
                         {{-- Button Login --}}
 
-                        <button type="submit" class="btn btn-info">Entrar</button>
+                        <button type="submit" class="btn bg-warning">Entrar</button>
 
 
                 </form>

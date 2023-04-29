@@ -1,7 +1,9 @@
-<div class="container p-0">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{{ route('home') }}">ANONYMOUS</a>
+
+<nav class="navbar navbar-expand-lg ref1">
+    <div class="container-fluid ">
+      <a href="{{ route('home') }}">
+        <img src="image/logo.png" alt="" width="50%" height="24%">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -73,4 +75,4 @@
       </div>
     </div>
   </nav>
-  </div>
+  

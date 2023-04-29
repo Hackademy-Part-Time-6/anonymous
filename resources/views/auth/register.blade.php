@@ -25,7 +25,7 @@
                     </div>
                     @endif
                     <!-- FORM FIELDS -->
-    <form action="/register" method="POST" role="form" class=" form-control php-email-form loginSide">
+    <form action="/register" method="POST" role="form" class=" form-control php-email-form loginSide bg-secondary text-white">
                         @csrf
                         <!-- Name -->
                         <div class="form-field-edit form-field space-around my-2">
@@ -55,7 +55,7 @@
                         </div>
                         <!-- Button Register -->
                         <div class="d-flex justify-content-center">
-                        <button type="submit" class="form-button-edit text-center space-around my-2">
+                        <button type="submit" class="form-button-edit text-center space-around my-2 btn bg-warning">
                             Crear cuenta
                         </button>
                         </div>
