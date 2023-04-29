@@ -24,15 +24,19 @@ class CreateAd extends Component
     ];
 
     public function store() {
+
         Ad::create([
             'title'=>$this->title,
             'body'=>$this->body,
             'price'=>$this->price,
         ]);
-        $this->clearForm();
+        session()->flash('message','Anuncio creado con exito');
+
+        $this->cleanForm();
+        //return redirect()->route('ads.index');
     }
 
-    public function clearForm() {
+    public function cleanForm() {
         $this->title = "";
         $this->body = "";
         $this->price = "";

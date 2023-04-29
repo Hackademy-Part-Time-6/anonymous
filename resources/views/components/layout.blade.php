@@ -16,8 +16,9 @@
     <x-nav/>
     {{ $slot }}
     <x-footer/>
-    @livewireStyles
+    
     @vite(['resources/js/app.js'])
+    @livewireScripts
     {{ $script ?? '' }}
 
 </body>
