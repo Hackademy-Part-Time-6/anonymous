@@ -26,6 +26,19 @@
             </div>
             <div class="mb-3">
 
+                <label for="category" class="form-label">Category:</label>
+
+                <select wire:model.defer="category"  class="form-control">
+                    <option value="">Select Category</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id}}">{{ $category->name }}</option>
+                    @endforeach
+                    </select>
+                    
+
+            </div>
+            <div class="mb-3">
+
                 <label for="price" class="form-label">Precio:</label>
 
                 <input wire:model="price" type="number" class="form-control @error('price') is-invalid @enderror">
