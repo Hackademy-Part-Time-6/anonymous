@@ -8,6 +8,11 @@ body{
     min-height: 100vh;
 }
 
+textarea {
+    resize: none;
+}
+
+
 .ref1{
     background-color: #bebebe;
 }
