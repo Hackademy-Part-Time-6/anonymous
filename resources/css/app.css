@@ -5,6 +5,11 @@ body{
     height: 100%;
 }
 
+textarea {
+    resize: none;
+}
+
+
 .ref1{
     background-color: #bebebe;
 }

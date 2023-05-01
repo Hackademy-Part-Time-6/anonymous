@@ -31,8 +31,8 @@ class CreateAd extends Component
     {
         $category = Category::find($this->category);
         $ad = $category->ads()->create([
-            'title' => $this->title,
-            'body' => $this->body,
+            'title' => strtoupper($this->title),
+            'body' => strtoupper($this->body),
             'price' => $this->price,
         ]);
         
@@ -40,7 +40,7 @@ class CreateAd extends Component
 
         Auth::user()->ads()->save($ad);
 
-        session()->flash('message', 'Anuncio creado con exito');
+        session()->flash('message', 'Anuncio creado con èxito');
         $this->cleanForm();
         //return redirect()->route('ads.index');
     }

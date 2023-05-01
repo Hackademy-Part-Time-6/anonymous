@@ -1,15 +1,10 @@
-<div>
+<div class="mt-3">
     {{-- The whole world belongs to you. --}}
 
-    @if (session()->has('message'))
-        <div class="alert alert-succes" role="alert">
-            {{session("message")}}
-        </div>
-   
-        
-    @endif
-
         <form wire:submit.prevent="store">
+            @if (session()->has('message'))
+            <x-message :message="session('message')" color="success"></x-message>
+        @endif
 
             @csrf
 
@@ -26,10 +21,10 @@
             </div>
             <div class="mb-3">
 
-                <label for="category" class="form-label">Category:</label>
+                <label for="category" class="form-label">Categoria:</label>
 
                 <select wire:model.defer="category"  class="form-control">
-                    <option value="">Select Category</option>
+                    <option value="">Selecciona Una Categoria</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id}}">{{ $category->name }}</option>
                     @endforeach
@@ -52,13 +47,13 @@
             <div class="mb-3">
                 <label for="body" class="form-label">Descripción:</label>
 
-                <textarea wire:model="body" cols="30" rows="15" class="form-control @error('body') is-invalid @enderror"></textarea>
+                <textarea wire:model="body" cols="10" rows="5" class="form-control @error('body') is-invalid @enderror"></textarea>
                 @error('body')
                 {{$message}}
                 @enderror
         </div>
-        <div class="my-3">
-        <button type="submit" class="btn bg-warning">Crear</button>
+        <div class="my-3 d-grid gap-2">
+            <button class="btn btn-primary" type="submit"><b>Crear</b></button>
         </div>
         </form>
         

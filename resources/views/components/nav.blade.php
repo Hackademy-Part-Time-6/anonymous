@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg ref1">
     <div class="container-fluid ">
       <a href="{{ route('home') }}">
-        <img src="image/logo.png" alt="" width="50%" height="24%">
+        <img src="{{asset("./image/logo.png")}}" alt="Logo Anonymous" width="50%" height="24%">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,7 @@
             <a class="nav-link" href="#">Quienes somos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Donde estamossss</a>
+            <a class="nav-link" href="#">Donde estamos</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
