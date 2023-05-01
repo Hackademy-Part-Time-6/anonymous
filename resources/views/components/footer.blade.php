@@ -36,6 +36,32 @@
       <!-- Section: Social media -->
     </div>
     <!-- Grid container -->
+
+    <div class="row justify-content-md-center align-items-center">
+    <div class="bg-transparent " style="width: 10rem">
+      <img class="card-img-top "  src="image/chanel.png" alt="Card image cap">
+    </div>
+    <div class="bg-transparent" style="width: 10rem;">
+      <img class="card-img-top "  src="image/burberrylogo.png" alt="Card image cap">
+    </div> 
+    <div class="bg-transparent" style="width: 10rem;">
+      <img class="card-img-top " src="image/dior.png" alt="Card image cap">
+    </div> 
+    <div class="bg-transparent" style="width: 10rem;">
+      <img class="card-img-top " src="image/dolce.png" alt="Card image cap">
+    </div> 
+    <div class="bg-transparent" style="width: 10rem;">
+      <img class="card-img-top " src="image/gucci.png" alt="Card image cap">
+    </div> 
+    <div class="bg-transparent" style="width: 10rem;">
+      <img class="card-img-top " src="image/herms.png" alt="Card image cap">
+    </div>
+    <div class="bg-transparent" style="width: 10rem">
+      <img class="card-img-top "  src="image/louis.png" alt="Card image cap">
+    </div><div class="bg-transparent" style="width: 10rem">
+      <img class="card-img-top "  src="image/versace.png" alt="Card image cap">
+    </div>
+  </div>
   
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
