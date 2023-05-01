@@ -18,6 +18,16 @@ textarea {
 }
 
 .ref2{
-    background-color: #484848;
+    background-color: #6f6f6f;
     margin-top: auto;
+}
+
+.ref3{
+    background-color: #6f6f6f;
+}
+
+.navbar{
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }

@@ -39,27 +39,28 @@
 
     <div class="row justify-content-md-center align-items-center">
     <div class="bg-transparent " style="width: 10rem">
-      <img class="card-img-top "  src="image/chanel.png" alt="Card image cap">
+      <img class="card-img-top "  src="{{ asset('image/dolce.png') }}" alt="Card image cap">
     </div>
     <div class="bg-transparent" style="width: 10rem;">
-      <img class="card-img-top "  src="image/burberrylogo.png" alt="Card image cap">
+      <img class="card-img-top "  src="{{ asset('image/dior.png') }}" alt="Card image cap">
     </div> 
     <div class="bg-transparent" style="width: 10rem;">
-      <img class="card-img-top " src="image/dior.png" alt="Card image cap">
+      <img class="card-img-top " src="{{ asset('image/burberrylogo.png') }}" alt="Card image cap">
     </div> 
     <div class="bg-transparent" style="width: 10rem;">
-      <img class="card-img-top " src="image/dolce.png" alt="Card image cap">
+      <img class="card-img-top " src="{{ asset('image/chanel.png') }}" alt="dolce">
     </div> 
     <div class="bg-transparent" style="width: 10rem;">
-      <img class="card-img-top " src="image/gucci.png" alt="Card image cap">
+      <img class="card-img-top " src="{{ asset('image/gucci.png') }}" alt="Card image cap">
     </div> 
     <div class="bg-transparent" style="width: 10rem;">
-      <img class="card-img-top " src="image/herms.png" alt="Card image cap">
+      <img class="card-img-top " src="{{ asset('image/hermslogo.png') }}" alt="Card image cap">
     </div>
     <div class="bg-transparent" style="width: 10rem">
-      <img class="card-img-top "  src="image/louis.png" alt="Card image cap">
-    </div><div class="bg-transparent" style="width: 10rem">
-      <img class="card-img-top "  src="image/versace.png" alt="Card image cap">
+      <img class="card-img-top "  src="{{ asset('image/louis.png') }}" alt="Card image cap">
+    </div>
+    <div class="bg-transparent" style="width: 10rem">
+      <img class="card-img-top "  src="{{ asset('image/versace.png') }}" alt="Card image cap">
     </div>
   </div>
   

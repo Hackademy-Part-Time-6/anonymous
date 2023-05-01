@@ -3,7 +3,7 @@
     <x-slot name="title">Anonymous - Login</x-slot>
 
     {{-- Form Login --}}
-    <div class="container-fluid mt-2 ">
+    <div class="container mt-4 mb-5 ">
         <div class="row p-5 ">
             <div class="col-12 col-md-6 offset-md-3 ">
                 {{-- Form Title --}}
@@ -28,7 +28,7 @@
 
                 {{-- Form Fields --}}
 
-                <form action="/login" method="POST" role="form" class="form-control bg-secondary text-white">
+                <form action="/login" method="POST" role="form" class="form-control ref3 text-white">
                     @csrf
 
                     {{-- Email --}}

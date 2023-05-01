@@ -25,7 +25,7 @@
                     </div>
                     @endif
                     <!-- FORM FIELDS -->
-    <form action="/register" method="POST" role="form" class=" form-control php-email-form loginSide bg-secondary text-white">
+    <form action="/register" method="POST" role="form" class=" form-control php-email-form loginSide ref3 text-white">
                         @csrf
                         <!-- Name -->
                         <div class="form-field-edit form-field space-around my-2">

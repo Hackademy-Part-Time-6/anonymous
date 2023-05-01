@@ -52,9 +52,7 @@
                 {{$message}}
                 @enderror
         </div>
-        <div class="my-3 d-grid gap-2">
-            <button class="btn btn-primary" type="submit"><b>Crear</b></button>
-        </div>
+        <button type="submit" class="btn bg-warning">Crear</button>
         </form>
         
        
