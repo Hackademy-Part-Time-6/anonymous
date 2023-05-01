@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdController;
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +29,5 @@ Route::get('/register', function () {
 })->name('register');
 
 Route::get('/ads/create', [AdController::class, 'create'])->name('ads.create');
+
+route::get('/', [PublicController::class, 'index'])->name('home');
