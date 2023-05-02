@@ -11,7 +11,13 @@ class PublicController extends Controller
     public function index()
     {
         $ads = Ad::orderBy('created_at', 'desc')->take(6)->get();
-        return view('welcome', compact('ads'));
+        // dd($ads);
+        $category = Category::orderBy('created_at')->take(6)->get();
+
+        // $category
+
+
+        return view('welcome', compact('ads','category'));
 
     }
     public function adsByCategory(Category $category)
