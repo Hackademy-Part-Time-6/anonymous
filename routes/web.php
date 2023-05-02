@@ -34,4 +34,4 @@ route::get('/', [PublicController::class, 'index'])->name('home');
 
 Route::get('/category/{category:name}/ads', [PublicController::class, 'adsByCategory'])->name('category.ads');
 
-Route::get('/ads/{ad}',[AdController::class,'show'])->name('ads.show');
+Route::get('/ads/{ad}', [AdController::class, 'show'])->name('ads.show');

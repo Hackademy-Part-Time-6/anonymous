@@ -17,7 +17,7 @@ class PublicController extends Controller
         // $category
 
 
-        return view('welcome', compact('ads','category'));
+        return view('welcome', compact('ads', 'category'));
 
     }
     public function adsByCategory(Category $category)
