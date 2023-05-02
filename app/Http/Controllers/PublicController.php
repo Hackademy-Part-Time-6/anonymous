@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ad;
+
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
+    public $ads;
     public function index()
     {
-        return view('welcome');
+        $ads = Ad::orderBy('created_at', 'desc')->take(6)->get();
+        return view('welcome', compact('ads'));
+
     }
 
 
