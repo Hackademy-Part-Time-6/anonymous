@@ -10,6 +10,7 @@
     </div>
     
         <div class="row">
+            <!-- aca da error -->
             @forelse($ads as $ad)
                 <div class="col-12 col-md-4">
                     <div class="card mb-5">

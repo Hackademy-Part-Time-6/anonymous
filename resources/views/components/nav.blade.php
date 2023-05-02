@@ -18,6 +18,19 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Donde estamos</a>
           </li>
+          <!--Visualizar las categorías en la navbar da error-->
+          <li class="nav-item dropdown mx-2">
+            <a class="nav-link dropdown-toggle item_nav" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categorias
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                @foreach ($categories as $category )
+                  <li>
+                    <a class="dropdown-item" href="{{ route('category.ads', $category) }}">{{ $category->name }}</a>
+                  </li>
+                @endforeach
+              </ul>
+          </li> 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Login
