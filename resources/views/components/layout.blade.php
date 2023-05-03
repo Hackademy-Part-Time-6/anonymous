@@ -16,6 +16,12 @@
 </head>
 <body>
     <x-nav/>
+
+
+    @if (session()->has('message'))
+        <x-message :message="session('message')['text']"  color="error"/>
+    @endif
+
     {{ $slot }}
     <x-footer/>
     

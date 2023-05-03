@@ -33,33 +33,37 @@
           </li>
 
 
-
-<li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    {{Auth::user()->name}}
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-    @if (Auth::user()->is_revisor)
-    <li>
-      <a class="dropdown-item" href="{{ route('revisor.home') }}">
-        Revisor
-        <span class="badge rounded-pill bg-danger">
-          {{ \App\Models\Ad::ToBeRevisionedCount() }}
-        </span>
-        @if(is_string(\App\Models\Ad::ToBeRevisionedCount()))
-          <div> {{ \App\Models\Ad::ToBeRevisionedCount() }} </div>
-        @endif
-      </a>
-    </li>
-    @endif
-    <li>
-      <form id="logoutForm" action="{{route('logout')}}" method="POST">
-        @csrf
-      </form>
-      <a id="logoutBtn" class="dropdown-item" href="#">Salir</a>
-    </li>
-  </ul>
-</li>
+          <li class="nav-item dropdown">
+            @if (auth()->check())
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ Auth::user()->name }}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                @if (Auth::user()->is_revisor)
+                  <li>
+                    <a class="dropdown-item" href="{{ route('revisor.home') }}">
+                      Revisor
+                      <span class="badge rounded-pill bg-danger">
+                        {{ \App\Models\Ad::ToBeRevisionedCount() }}
+                      </span>
+                      @if(is_string(\App\Models\Ad::ToBeRevisionedCount()))
+                        <div> {{ \App\Models\Ad::ToBeRevisionedCount() }} </div>
+                      @endif
+                    </a>
+                  </li>
+                @endif
+                <li>
+                  <form id="logoutForm" action="{{route('logout')}}" method="POST">
+                    @csrf
+                  </form>
+                  <a id="logoutBtn" class="dropdown-item" href="#">Salir</a>
+                </li>
+              </ul>
+            @else
+              <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
+            @endif
+          </li>
+          
 
 
           <li class="nav-item dropdown">
