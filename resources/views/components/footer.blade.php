@@ -66,6 +66,7 @@
   
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      <a href="{{route('revisor.become')}}" class="btn btn-warning">Work with us</a><br>
       © 2023 Copyright:
       <a class="text-white" href="{{ route('home') }}">Anonymuos.com</a>
     </div>
