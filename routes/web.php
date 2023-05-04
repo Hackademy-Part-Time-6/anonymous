@@ -46,6 +46,7 @@ Route::middleware(['isRevisor'])->group(function () {
 Route::get('/revisor/become', [RevisorController::class, 'becomeRevisor'])->middleware('auth')->name('revisor.become');
 Route::get('revisor/{user}/make', [RevisorController::class, 'makeRevisor'])->middleware('auth')->name('revisor.make');
 
+Route::post('/locale/{locale}', [PublicController::class, 'setLocale'])->name('locale.set');
 // Route::get('/revisor',[RevisorController::class,'index'] )->name('revisor.home');
 
 
