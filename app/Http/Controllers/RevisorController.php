@@ -4,19 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Mail\BecomeRevisor;
 use App\Models\Ad;
+use App\Mail\BecomeRevisor;
+use Illuminate\Support\Facades\Mail;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class RevisorController extends Controller
 {
-
-
+/* Hemos comentado de la 14 a la 18 para que no de el error al pulsar el botón del footer, 
+pero, aún así nos daba un par daba un par de errores porque faltaban las clases de la fila 6 y 7, aún así faltan dos clases. */
+/*
     public function __construct()
     {
         $this->middleware('isRevisor');
     }
-
+*/
     public function index()
     {
         $ad = Ad::where('is_accepted', null)

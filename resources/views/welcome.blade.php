@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Anuncios por Categoria: </h1>
+                <h1>Últimos productos: </h1>
             </div>
         </div>
     </div>
