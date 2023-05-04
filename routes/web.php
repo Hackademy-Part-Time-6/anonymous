@@ -44,6 +44,7 @@ Route::middleware(['isRevisor'])->group(function () {
     Route::patch('/revisor/ad/{ad}/reject', [RevisorController::class, 'rejectAd'])->name('revisor.ad.reject');
 });
 Route::get('/revisor/become', [RevisorController::class, 'becomeRevisor'])->middleware('auth')->name('revisor.become');
+Route::get('revisor/{user}/make', [RevisorController::class, 'makeRevisor'])->middleware('auth')->name('revisor.make');
 
 // Route::get('/revisor',[RevisorController::class,'index'] )->name('revisor.home');
 
