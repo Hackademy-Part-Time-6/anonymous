@@ -11,7 +11,7 @@
     
         <div class="row">
             <!-- aca da error -->
-            @forelse($ads as $ad)
+            @forelse($ads ?? [] as $ad)
                 <div class="col-12 col-md-4">
                     <div class="card mb-5">
                         <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
