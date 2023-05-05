@@ -1,17 +1,20 @@
 <x-layout>
     <x-slot name="title">Anonymous ads</x-slot>
 
-    {{-- <div class="col-12">
-        <h1>{{ __('messages.welcome') }}</h1> --}}
+    <div class="col-12 text-center">
+        <h1>{{ __('messages.welcome') }}</h1>
     </div>
-    <div class="container">
+    
+    <div class="container justify-content-center">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-center">
                 <h1>Últimos productos: </h1>
             </div>
         </div>
     </div>
+    
 
+<div class="container justify-content-center">
     <div class="row">
         <!-- aca da error -->
         @forelse($ads ?? [] as $ad)
@@ -36,12 +39,15 @@
                 </div>
             </div>
         @empty
-            <div class="col-12">
+            <div class="col-12 justify-content-center">
                 <h2>Uyy.. parece que no hay nada de esta categoría</h2>
                 <a href="{{ route('ads.create') }}" class="btn btn-success">Vende tu primer objeto</a>
                 o <a href="{{ route('home') }}" class="btn btn-primary">Vuelve a la home</a>
             </div>
         @endforelse
     </div>
+</div>
+
+
 
 </x-layout>
