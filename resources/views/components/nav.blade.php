@@ -10,19 +10,20 @@
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
+                    <a class="nav-link active" aria-current="page"
+                        href="{{ route('home') }}">{{ __('messages.home') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Quienes somos</a>
+                    <a class="nav-link" href="#">{{ __('messages.about') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Donde estamos</a>
+                    <a class="nav-link" href="#">{{ __('messages.where') }}</a>
                 </li>
                 <!--Visualizar las categorías en la navbar da error-->
                 <li class="nav-item dropdown mx-2">
                     <a class="nav-link dropdown-toggle item_nav" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Categorias
+                        {{ __('messages.categories') }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach ($categories as $category)
