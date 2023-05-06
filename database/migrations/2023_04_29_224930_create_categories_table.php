@@ -21,12 +21,12 @@ return new class extends Migration {
             $table->timestamps();
         });
         $categories = [
-            'bolsos',
-            'zapatos',
-            'joyeria',
-            'relojeria',
-            'bisuteria',
-            'ropa'
+            'Bolsos',
+            'Zapatos',
+            'Joyeria',
+            'Relojeria',
+            'Bisuteria',
+            'Ropa'
         ];
         foreach ($categories as $category) {
             Category::create(['name' => $category]);
