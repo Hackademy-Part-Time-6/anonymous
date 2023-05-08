@@ -47,6 +47,10 @@ Route::get('/revisor/become', [RevisorController::class, 'becomeRevisor'])->midd
 Route::get('revisor/{user}/make', [RevisorController::class, 'makeRevisor'])->middleware('auth')->name('revisor.make');
 
 Route::post('/locale/{locale}', [PublicController::class, 'setLocale'])->name('locale.set');
+
+Route::get('/quienes-somos', function(){
+    return view ('about-us');
+})->name('about-us');
 // Route::get('/revisor',[RevisorController::class,'index'] )->name('revisor.home');
 
 

@@ -14,7 +14,7 @@
                     <a class="nav-link" href="#">{{ __('Dónde estamos') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{{ __('Quienes somos') }}</a>
+                    <a class="nav-link" href="{{ route('about-us') }}">{{ __('Quienes somos') }}</a>
                 </li>
                 <!--Visualizar las categorías en la navbar da error-->
                 <li class="nav-item dropdown mx-2">
