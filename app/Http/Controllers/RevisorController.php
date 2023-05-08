@@ -22,10 +22,20 @@ class RevisorController extends Controller
 */
     public function index()
     {
+        // $ads = Ad::where('is_accepted', true)
+        //         ->orderBy('created_at', 'desc')
+        //         ->get();
+        $ads = Ad::orderBy('created_at', 'asc')
+                ->get();
+        // dd($ads);
+        return view('revisor.components.table', compact('ads'));
+    }
+
+    public function accept () {
         $ad = Ad::where('is_accepted', null)
             ->orderBy('created_at', 'desc')
             ->first();
-        return view('revisor.home', compact('ad'));
+        return view("revisor.components.accepted", compact('ad'));
     }
 
 
