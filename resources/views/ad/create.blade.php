@@ -6,13 +6,13 @@
             <div class="col-md-4">
                 <div class="card ref3 text-white">
                     <div class="card-header ref3 text-white text-center">
-                        CREA UN ANUNCIO
+                        {{ __('Crear Anuncio') }}
                     </div>
                     <div class="card-body">
-                        <livewire:create-ad/>
+                        <livewire:create-ad />
                     </div>
                 </div>
-             </div>
+            </div>
         </div>
     </div>
 </x-layout>

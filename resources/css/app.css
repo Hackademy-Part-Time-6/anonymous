@@ -26,9 +26,18 @@ textarea {
 .ref3{
     background-color: #6f6f6f;
 }
-
+.ref4{
+    background-color: #d8d6d6;
+}
 .navbar{
     position: sticky;
     top: 0;
     z-index: 5;
+}
+
+.pag1{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }

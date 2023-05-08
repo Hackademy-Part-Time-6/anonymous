@@ -9,27 +9,24 @@
         </button>
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
+
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page"
-                        href="{{ route('home') }}">{{ __('messages.home') }}</a>
+                    <a class="nav-link" href="#">{{ __('Dónde estamos') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{{ __('messages.about') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{{ __('messages.where') }}</a>
+                    <a class="nav-link" href="#">{{ __('Quienes somos') }}</a>
                 </li>
                 <!--Visualizar las categorías en la navbar da error-->
                 <li class="nav-item dropdown mx-2">
                     <a class="nav-link dropdown-toggle item_nav" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        {{ __('messages.categories') }}
+                        {{ __('Categorías') }}
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdown">
                         @foreach ($categories as $category)
                             <li>
-                                <a class="dropdown-item"
-                                    href="{{ route('category.ads', $category) }}">{{ $category->name }}</a>
+                                <a class="dropdown-item ref4"
+                                    href="{{ route('category.ads', $category) }}">{{ __($category->name) }}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -42,11 +39,11 @@
                             aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdown">
                             @if (Auth::user()->is_revisor)
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('revisor.home') }}">
-                                        Revisor
+                                    <a class="dropdown-item ref4" href="{{ route('revisor.home') }}">
+                                        {{ __('Revisor') }}
                                         <span class="badge rounded-pill bg-danger">
                                             {{ \App\Models\Ad::ToBeRevisionedCount() }}
                                         </span>
@@ -60,20 +57,20 @@
                                 <form id="logoutForm" action="{{ route('logout') }}" method="POST">
                                     @csrf
                                 </form>
-                                <a id="logoutBtn" class="dropdown-item" href="#">Salir</a>
+                                <a id="logoutBtn" class="dropdown-item ref4" href="#">{{ __('Salir') }}</a>
                             </li>
                         </ul>
                     @else
-                        <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                     @endif
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Login
+                        {{ __('Registrar') }}
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdownMenuLink">
 
 
 
@@ -86,7 +83,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">
                                         <span>
-                                            Entrar
+                                            {{ __('Entrar') }}
                                         </span>
                                     </a>
                                 </li>
@@ -96,22 +93,22 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">
                                         <span>
-                                            Registrar
+                                            {{ __('Registrar') }}
                                         </span>
                                     </a>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
+                            <li class="nav-item ref4">
                                 <form action="{{ route('logout') }}" id="logoutForm" method="POST">
                                     @csrf
                                 </form>
-                                <a href="#" id="logoutBtn" class="nav-link">Salir</a>
+                                <a href="#" id="logoutBtn" class="nav-link">{{ __('Salir') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('ads.create') }}">
                                     <span>
-                                        Crear Anuncio
+                                        {{ __('Crear Anuncio') }}
                                     </span>
                                 </a>
                             </li>
