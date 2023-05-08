@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class CreateAd extends Component
 {
+    use WithFileUploads;
+
     public string $title;
     public string $body;
     public $price;
