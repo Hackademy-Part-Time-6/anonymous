@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "iconos-portal";
+  src:url("../fonts/iconos-portal.eot");
+  src:url("../fonts/iconos-portal.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/iconos-portal.woff") format("woff"),
+    url("../fonts/iconos-portal.ttf") format("truetype"),
+    url("../fonts/iconos-portal.svg#iconos-portal") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "iconos-portal" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "iconos-portal" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before {
+  content: "\61";
+}
+.icon-adjust:before {
+  content: "\62";
+}
+.icon-atras:before {
+  content: "\63";
+}
+.icon-siguiente:before {
+  content: "\64";
+}
+.icon-bell:before {
+  content: "\65";
+}
+.icon-calendar:before {
+  content: "\66";
+}
+.icon-camera:before {
+  content: "\67";
+}
+.icon-personita:before {
+  content: "\68";
+}
+.icon-pencil:before {
+  content: "\69";
+}
+.icon-archivos:before {
+  content: "\6a";
+}
+.icon-luna:before {
+  content: "\6b";
+}
+.icon-modificacion:before {
+  content: "\6c";
+}
+.icon-paypal:before {
+  content: "\6d";
+}
+.icon-user:before {
+  content: "\6e";
+}
+.icon-pdf:before {
+  content: "\6f";
+}
+.icon-print:before {
+  content: "\70";
+}
+.icon-comment:before {
+  content: "\71";
+}
+.icon-cog:before {
+  content: "\73";
+}
+.icon-mensaje:before {
+  content: "\72";
+}
+.icon-candado:before {
+  content: "\74";
+}
+.icon-heart:before {
+  content: "\75";
+}
+.icon-ayuda:before {
+  content: "\76";
+}
+.icon-generos:before {
+  content: "\77";
+}
+.icon-celular:before {
+  content: "\7a";
+}
+.icon-phone-1:before {
+  content: "\41";
+}
+.icon-foto:before {
+  content: "\42";
+}
+.icon-arrow-circle-up:before {
+  content: "\44";
+}
+.icon-reloj:before {
+  content: "\45";
+}
+.icon-times-circle:before {
+  content: "\47";
+}
+.icon-map-marker:before {
+  content: "\46";
+}
+.icon-globe:before {
+  content: "\48";
+}
+.icon-carpeta:before {
+  content: "\49";
+}
+.icon-floppy-o:before {
+  content: "\4a";
+}
+.icon-eye-slash:before {
+  content: "\4b";
+}
+.icon-eye:before {
+  content: "\4c";
+}
+.icon-eyedropper:before {
+  content: "\4d";
+}
+.icon-enfermos:before {
+  content: "\4e";
+}
+.icon-discapacidad:before {
+  content: "\4f";
+}
+.icon-star:before {
+  content: "\50";
+}
+.icon-star-half:before {
+  content: "\51";
+}
+.icon-star-half-o:before {
+  content: "\52";
+}
+.icon-star-o:before {
+  content: "\53";
+}
+.icon-home:before {
+  content: "\54";
+}
+.icon-plus:before {
+  content: "\55";
+}
+.icon-llave:before {
+  content: "\56";
+}
+.icon-delete:before {
+  content: "\57";
+}
+.icon-edades:before {
+  content: "\78";
+}
+.icon-search:before {
+  content: "\43";
+}
