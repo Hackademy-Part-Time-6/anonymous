@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Ad;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,6 +14,10 @@ class CreateAd extends Component
     public string $body;
     public $price;
     public $category;
+
+    public $images = [];
+    public $temporary_images;
+    public $image;
 
     protected $rules = [
         'title' => 'required|min:4',
@@ -25,24 +30,37 @@ class CreateAd extends Component
         'required' => 'El campo es requerido por favor rellenelo',
         'min' => 'El campo necesita un minimo requerido',
         'numeric' => 'El campo es numerico ingrese numeros',
+
+        'temporary_images.required' => 'La imagen es obligatoria',
+        'temporary_images.*.image' => 'Los archivos tienen que ser imagenes',
+        'temporary_images.*.max' => 'La imagen supera los :max mb',
+        'images.image' => 'El archivo tiene que ser una imagen',
+        'images.max' => 'La imagen supera los :max mb',
     ];
 
     public function store()
     {
+        // datos validados
+        $validatedData = $this->validate();
+        // busco la categoria
         $category = Category::find($this->category);
-        $ad = $category->ads()->create([
-            'title' => strtoupper($this->title),
-            'body' => strtoupper($this->body),
-            'price' => $this->price,
-        ]);
-        
-        //Auth::user()->Ad::ads()->save($ad);
 
+        // creo el anuncio a partir de la categoria usando la relacion y pasando los datos validados
+        $ad = $category->ads()->create($validatedData);
+
+        // vuelvo a guardar el anuncio "pasando" por la relacion del usuario
         Auth::user()->ads()->save($ad);
+        // guardo cada imagen en el db y en el storage
+        if (count($this->images)) {
+            foreach ($this->images as $image) {
+                $ad->images()->create([
+                    'path' => $image->store("images/$ad->id", 'public')
+                ]);
+            }
+        }
 
-        session()->flash('message', 'Anuncio creado con èxito');
+        session()->flash('message', 'Ad created successfully');
         $this->cleanForm();
-        //return redirect()->route('ads.index');
     }
 
     public function cleanForm()
@@ -61,5 +79,13 @@ class CreateAd extends Component
     public function render()
     {
         return view('livewire.create-ad');
+    }
+
+
+    public function removeImage($key)
+    {
+        if (in_array($key, array_keys($this->images))) {
+            unset($this->images[$key]);
+        }
     }
 }
