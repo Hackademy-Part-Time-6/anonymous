@@ -40,30 +40,88 @@ class CreateAd extends Component
         'images.max' => 'La imagen supera los :max mb',
     ];
 
-    public function store()
-    {
-        // datos validados
-        $validatedData = $this->validate();
-        // busco la categoria
-        $category = Category::find($this->category);
+    // public function store()
+    // {
+    //     // datos validados
+    //     $validatedData = $this->validate();
+    //     // busco la categoria
+    //     $category = Category::find($this->category);
 
-        // creo el anuncio a partir de la categoria usando la relacion y pasando los datos validados
-        $ad = $category->ads()->create($validatedData);
+    //     // creo el anuncio a partir de la categoria usando la relacion y pasando los datos validados
+    //     $ad = $category->ads()->create($validatedData);
 
-        // vuelvo a guardar el anuncio "pasando" por la relacion del usuario
-        Auth::user()->ads()->save($ad);
-        // guardo cada imagen en el db y en el storage
-        if (count($this->images)) {
-            foreach ($this->images as $image) {
-                $ad->images()->create([
-                    'path' => $image->store("images/$ad->id", 'public')
-                ]);
+    //     // vuelvo a guardar el anuncio "pasando" por la relacion del usuario
+    //     Auth::user()->ads()->save($ad);
+    //     // guardo cada imagen en el db y en el storage
+    //     if (count($this->images)) {
+    //         foreach ($this->images as $image) {
+    //             $ad->images()->create([
+    //                 'path' => $image->store("images/$ad->id", 'public')
+    //             ]);
+    //         }
+    //     }
+
+    //     session()->flash('message', 'Ad created successfully');
+    //     $this->cleanForm();
+    // }
+
+
+// public function store()
+// {
+//     // datos validados
+//     $validatedData = $this->validate();
+//     // busco la categoria
+//     $category = Category::find($this->category);
+    
+//     // creo el anuncio a partir de la categoria usando la relacion y pasando los datos validados
+//     $ad = $category->ads()->create($validatedData);
+    
+//     // vuelvo a guardar el anuncio "pasando" por la relacion del usuario
+//     Auth::user()->ads()->save($ad);
+//     // guardo cada imagen en el db y en el storage
+//     if(count($this->images)){
+//         foreach ($this->images as $image) {
+//             $ad->images()->create([
+//                 'path'=>$image->store("images/$ad->id",'public')
+//             ]);
+//         }
+//     }
+    
+//     session()->flash('message','Ad created successfully');
+//     $this->cleanForm();
+// }
+
+
+public function store()
+{
+    // datos validados
+    $validatedData = $this->validate();
+    // busco la categoria
+    $category = Category::find($this->category);
+
+    // creo el anuncio a partir de la categoria usando la relacion y pasando los datos validados
+    $ad = $category->ads()->create($validatedData);
+
+    // vuelvo a guardar el anuncio "pasando" por la relacion del usuario
+    Auth::user()->ads()->save($ad);
+    // guardo cada imagen en el db y en el storage
+    if (count($this->images)) {
+        foreach ($this->images as $image) {
+            $path = $image->store("images/$ad->id", 'public');
+            // Verificar si el archivo se guardó correctamente
+            if (!$path) {
+                return 'Error al guardar la imagen';
             }
+            $ad->images()->create([
+                'path' => $path
+            ]);
         }
-
-        session()->flash('message', 'Ad created successfully');
-        $this->cleanForm();
     }
+
+    session()->flash('message', 'Ad created successfully');
+    $this->cleanForm();
+}
+
 
     public function cleanForm()
     {
@@ -88,6 +146,17 @@ class CreateAd extends Component
     {
         if (in_array($key, array_keys($this->images))) {
             unset($this->images[$key]);
+        }
+    }
+
+
+    public function updatedTemporaryImages(){
+        if($this->validate([
+            'temporary_images.*'=>'image|max:2048'
+        ])){
+            foreach ($this-> temporary_images as $image) {
+                $this->images[] = $image;
+            }
         }
     }
 }

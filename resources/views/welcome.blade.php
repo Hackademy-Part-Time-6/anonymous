@@ -16,6 +16,30 @@
                     <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
 
                     <div class="card-body text-center">
+
+
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <b>{{__('Imágenes')}}</b>
+                            </div>
+                            <div class="col-9">
+                                <div class="row">
+                                    @forelse ($ad->images as $image)
+                                    <div class="col-md-4">
+                                        <img src="{{Storage::url($image->path)}}" class="img-fluid" alt="{{$ad->title}}">
+                                    </div>
+                                @empty
+                                <div class="col-12">
+                                    <b>{{__('No hay imágenes')}}</b>
+                                </div>
+                                @endforelse
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+
                         <h4 class="card-title"> {{ $ad->title }}</h4>
                         <h5 class="card-subtitle mb-2 text-muted">{{ $ad->price }}€</h5>
                         <p class="card-text"> {{ $ad->body }}</p>
@@ -26,7 +50,7 @@
                             <div>{{ __('Publicado') }}: {{ $ad->created_at->format('d/m/Y') }}</div>
                         </div>
                         <div class="card-subtitle mb-2">
-                            <small>{{ $ad->user->name }}</small>
+                            <small>{{ $ad->user?->name }}</small>
                         </div>
                         <a href="{{ route('ads.show', $ad) }}" class="btn btn-warning">{{ __('Mostrar Más') }}</a>
                     </div>
