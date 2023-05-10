@@ -42,7 +42,7 @@
                         <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdown">
                             @if (Auth::user()->is_revisor)
                                 <li>
-                                    <a class="dropdown-item ref4" href="{{ route('revisor.home') }}">
+                                    <a class="dropdown-item ref4" href="{{ route('revisor.home') }}" target="_blank" rel="noopener">
                                         {{ __('Revisor') }}
                                         <span class="badge rounded-pill bg-danger">
                                             {{ \App\Models\Ad::ToBeRevisionedCount() }}
