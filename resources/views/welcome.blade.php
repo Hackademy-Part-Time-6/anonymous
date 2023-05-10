@@ -26,14 +26,14 @@
                             <div class="col-9">
                                 <div class="row">
                                     @forelse ($ad->images as $image)
-                                    <div class="col-md-4">
-                                        <img src="{{Storage::url($image->path)}}" class="img-fluid" alt="{{$ad->title}}">
-                                    </div>
-                                @empty
-                                <div class="col-12">
-                                    <b>{{__('No hay imágenes')}}</b>
-                                </div>
+                                    <img src="{{ Storage::url($image->path) }}" class="card-img-top" alt="...">
+                                    @empty
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
                                 @endforelse
+                                
+                                
+                              
+                                
                                 </div>
                             </div>
                         </div>
