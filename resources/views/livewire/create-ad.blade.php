@@ -3,7 +3,7 @@
 
     <form wire:submit.prevent="store">
         @if (session()->has('message'))
-            <x-message :message="session('message')" color="success"></x-message>
+            <x-message :message="session('message')['text']" :color="session('message')['type']"></x-message>
         @endif
 
         @csrf
@@ -80,8 +80,5 @@
         
         <button type="submit" class="btn bg-warning">{{ __('Crear') }}</button>
     </form>
-
-
-
 
 </div>

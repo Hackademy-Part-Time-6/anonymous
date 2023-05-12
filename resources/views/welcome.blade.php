@@ -26,7 +26,7 @@
                             <div class="col-9">
                                 <div class="row">
                                     @forelse ($ad->images as $image)
-                                        <img src="{{ Storage::url($image->path) }}" class="card-img-top" alt="...">
+                                        <img src="{{$ad->images()->first()->getUrl(400,300)}}" class="card-img-top" alt="...">
                                     @empty
                                         <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
                                     @endforelse
