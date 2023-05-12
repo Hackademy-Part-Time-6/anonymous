@@ -18,9 +18,10 @@
     <x-nav/>
 
 
-    @if (session()->has('message'))
-        <x-message :message="session('message')['text']"  color="error"/>
+    @if (!is_null(session('message')))
+        <x-message :message="session('message')['text']" color="error"/>
     @endif
+
 
     {{ $slot }}
     <x-footer/>

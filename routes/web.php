@@ -50,6 +50,6 @@ Route::get('revisor/{user}/make', [RevisorController::class, 'makeRevisor'])->mi
 
 Route::post('/locale/{locale}', [PublicController::class, 'setLocale'])->name('locale.set');
 
-Route::get('/quienes-somos', function(){
-    return view ('about-us');
+Route::get('/quienes-somos', function () {
+    return view('about-us');
 })->name('about-us');

@@ -15,7 +15,7 @@
                 <div class="card mb-5">
                     
         @if ($ad->images()->count() > 0)
-            <img src="{{!$ad->images()->get()->isEmpty() ? Storage::url($ad->images()->first()->path) : 'https://via.placeholder.com/150' }}" class="card-img-top" alt="...">
+        <img src="{{!$ad->images()->get()->isEmpty() ? $ad->images()->first()->getUrl(400,300) : 'https://via.placeholder.com/150' }}" class="card-img-top" alt="...">
         @endif
 
                     <div class="card-body text-center">
