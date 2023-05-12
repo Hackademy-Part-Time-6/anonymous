@@ -41,3 +41,14 @@ textarea {
   justify-content: center;
   min-height: 100vh;
 }
+
+.marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.col-lg-4 {
+    width: 33.33333333%;
+    padding-left: 80px;
+    padding-right: 80px;
+}

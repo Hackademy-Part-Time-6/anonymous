@@ -12,13 +12,13 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{asset('image/burberrylogo.png')}}" class="d-block w-100" alt="...">
+        <img src="{{asset('image/img_chica.jpg')}}" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="{{asset('image/burberrylogo.png')}}" class="d-block w-100" alt="...">
+        <img src="{{asset('image/img_nike_bambas.jpg')}}" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="{{asset('image/burberrylogo.png')}}" class="d-block w-100" alt="...">
+        <img src="{{asset('image/img_reloj.jpg')}}" class="d-block w-100" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -31,37 +31,37 @@
     </button>
   </div>
 
-  <div class="container marketing">
+  <div class="container marketing mt-5">
 
     <!-- Three columns of text below the carousel -->   
     <div class="row">
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-        <h2>Heading</h2>
-        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        <h4>Garantía de originalidad</h4>
+        <p>Encuentra productos únicos y especiales.</p>
+       
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-        <h2>Heading</h2>
-        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        <h4>Pago seguro</h4>
+        <p>Aceptamos pago con tarjeta de crédito y Paypal.</p>
+      
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-        <h2>Heading</h2>
-        <p>And lastly this, the third column of representative placeholder content.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        <h4>Te lo llevamos a casa</h4>
+        <p>No te preocupes por la distancia, te lo llevamos.</p>
+      
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
 
     <!-- START THE FEATURETTES -->
 
-    <hr class="featurette-divider">
+    <hr class="featurette-divider mt-5">
 
     <div class="row featurette">
       <div class="col-md-7">
@@ -100,7 +100,7 @@
       </div>
     </div>
 
-    <hr class="featurette-divider">
+    <hr class="featurette-divider mb-5">
 
     <!-- /END THE FEATURETTES -->
 

@@ -3,11 +3,10 @@
         <a href="{{ route('home') }}">
             <img src="{{ asset('./image/logo.png') }}" alt="Logo Anonymous" width="50%" height="24%">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
 
                 <li class="nav-item">
@@ -133,4 +132,5 @@
             </ul>
         </div>
     </div>
+
 </nav>
