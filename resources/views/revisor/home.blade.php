@@ -29,6 +29,11 @@
 
             <!-- Contenido Principal  -->
             <main class="main__content">
+
+                @if (session()->has('message'))
+                    <x-message :message="session('message')['text']" :color="session('message')['type']"></x-message>
+                @endif
+
                 @yield('content')
             </main>
         <!-- Contenido Principal Fin  -->

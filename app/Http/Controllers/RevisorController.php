@@ -35,6 +35,7 @@ class RevisorController extends Controller
         $ad = Ad::where('is_accepted', null)
             ->orderBy('created_at', 'desc')
             ->first();
+        // dd($ad);
         return view("revisor.components.accepted", compact('ad'));
     }
 

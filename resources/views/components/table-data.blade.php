@@ -1,6 +1,6 @@
 <div class="table-data__row">
     <div class="table-data__info">
-        <a class="table-data__content center" href="{{route('revisor.aprobate',$number)}}">{{ $number }}</a>
+      <a class="table-data__content center" href="{{ route('revisor.aprobate', trim($number)) }}">{{ $number }}</a>
         <p class="table-data__content center">{{ $category }}</p>
         <p class="table-data__content center">{{ $title }}</p>
         <p class="table-data__content center">{{ $user }}</p>
@@ -15,7 +15,7 @@
 
             @endif
           </div>
-        <a class="table-data__content center"><i class="{{ $editIcon }}"></i></a>
-        <a class="table-data__content center"><i class="{{ $configIcon }}"></i></a>
+          <a class="table-data__content center" href="{{ route('revisor.edit', trim($number)) }}"><i class="{{ $editIcon }}"></i></a>
+          <a class="table-data__content center"><i class="{{ $configIcon }}"></i></a>
     </div>
 </div>
