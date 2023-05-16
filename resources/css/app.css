@@ -41,3 +41,10 @@ textarea {
   justify-content: center;
   min-height: 100vh;
 }
+
+.con1 {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
