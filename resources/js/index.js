@@ -1,22 +1,21 @@
 // Importaciones de modulo.
 import {
   cargarColores,
-  cargarSelect,
-  opcionesCarrera,
 } from "./helpers/cargar.js";
 import { acordeon, colocarColorLocalStorage } from "./helpers/efectos.js";
 import { click } from './helpers/click.js';
 import { caracteres, teclado } from "./helpers/teclado.js";
-import { submit } from "./helpers/submit.js";
+import { submit, updateStatusElements } from "./helpers/submit.js";
 import { changes } from "./helpers/changes.js";
 
 // Evento cuando carga el documento, cuando esta listo.
-document.addEventListener("DOMContentLoaded", (e) => {
+document.addEventListener("DOMContentLoaded", async(e) => {
   // Funcion para hacer el select dinamico.
-  cargarSelect("carrera", opcionesCarrera);
   cargarColores(".container-colors");
   colocarColorLocalStorage("[data-theme]");
   caracteres();
+  await updateStatusElements();
+
 });
 
 

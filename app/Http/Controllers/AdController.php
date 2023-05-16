@@ -91,4 +91,30 @@ class AdController extends Controller
             }
             return redirect()->route('revisor.edit',$ad->id);
         }
+
+        public function destroy($ad)
+        {
+
+            // return "Hola";
+            $ad = Ad::findOrFail($ad);
+        
+            // Eliminar las imágenes del sistema de archivos
+            foreach ($ad->images as $image) {
+                if ($image->path && Storage::exists($image->path)) {
+                    Storage::delete($image->path);
+                }
+            }
+        
+            // Eliminar el anuncio de la base de datos
+            $ad->delete();
+        
+            // Opcional: Realizar otras acciones o mostrar mensajes de éxito
+        
+            // return redirect()->route('revisor.home')->with('success', 'Anuncio eliminado correctamente');
+
+            return response()->json([
+                'message' => 'Anuncio eliminado correctamente'
+            ]);
+        }
+        
 }

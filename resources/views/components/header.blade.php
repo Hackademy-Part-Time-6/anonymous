@@ -13,7 +13,6 @@
           type="search"
           placeholder="Buscar..."
           class="menu__panel-form-input"
-          data-number=""
         />
         <button
           type="submit"

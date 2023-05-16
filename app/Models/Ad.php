@@ -48,4 +48,10 @@ class Ad extends Model
         $count = Ad::where('is_accepted', true)->count();
         return ($count > 0) ? $count : 'No hay anuncios aprobados';
     }
+
+    static public function ApprovedCountJSON()
+    {
+        $count = Ad::where('is_accepted', true)->count();
+        return ($count > 0) ? $count : 'No hay anuncios aprobados';
+    }
 }
