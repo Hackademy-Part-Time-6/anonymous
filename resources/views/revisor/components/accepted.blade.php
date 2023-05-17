@@ -138,6 +138,14 @@
                                 [{{ $image->violence }}] <br>
                                 Racy : <i class="bi bi-circle-fill {{ $image->racy }}"></i> [{{ $image->racy }}] <br>
 
+                                <b>Labels</b><br>
+                                @forelse ($image->getLabels() as $label)
+                                    <a href="#" class="btn btn-info btn-sm m-1">{{ $label }}</a>
+
+                                @empty
+                                    No labels
+                                @endforelse
+                                <br><br>
                                 id: {{ $image->id }} <br>
                                 path: {{ $image->path }} <br>
                                 url: {{ Storage::url($image->path) }} <br>
