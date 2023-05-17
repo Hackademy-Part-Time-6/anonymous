@@ -131,6 +131,10 @@
 
             </ul>
         </div>
+        <form action="{{route('search')}}" method="GET" class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+        <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        </form>
     </div>
 
 </nav>
