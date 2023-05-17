@@ -6,10 +6,10 @@
             <h1>{{ __('messages.latest') }}:</h1>
         </div>
 
-        <div class="row ">
+        <div class="row justify-content-center">
             @forelse($ads ?? [] as $ad)
-                <div class="col-12 col-md-4 mb-5 con1" style="background-color: #bebebe; border: 1px solid #D4AF37;">
-                    <div class="card mb-5 ">
+                <div class="col-12 col-md-4 mb-4 " style="background-color: #bebebe; border: 1px solid #D4AF37;">
+                    <div class="card mb-5">
                         @if ($ad->images->count() > 0)
                             <img src="{{ $ad->images->first()->getUrl(400, 300) }}" class="card-img-top" alt="...">
                         @else
@@ -29,7 +29,7 @@
                         <div class="card-subtitle mb-2">
                             <small>{{ $ad->user?->name }}</small>
                         </div>
-                        <a href="{{ route('ads.show', $ad) }}" class="btn btn-warning"
+                        <a href="{{ route('ads.show', $ad) }}" class="btn btn-warning my-5"
                             style="background-color: #D4AF37;">{{ __('Mostrar Más') }}</a>
                     </div>
                 </div>
