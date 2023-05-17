@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 
 class Image extends Model
-{   
+{
     use HasFactory;
 
 
@@ -24,7 +24,7 @@ class Image extends Model
 
     public static function getUrlByFilePath($filePath, $w = null, $h = null)
     {
-        if(!$w && !$h){
+        if (!$w && !$h) {
             return Storage::url($filePath);
         }
         $path = dirname($filePath);
@@ -35,7 +35,11 @@ class Image extends Model
 
     public function getUrl($w = null, $h = null)
     {
-        return self::getUrlByFilePath($this->path, $w,$h);
+        return self::getUrlByFilePath($this->path, $w, $h);
+    }
+    public static function find($id)
+    {
+        return self::where('id', $id)->first();
     }
 
 }
