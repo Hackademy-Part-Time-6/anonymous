@@ -3,17 +3,17 @@ import { mostrarMensaje } from "./modal.js";
 
 const searchAds = async (query) => {
     try {
-        const response = await fetch(`/revisor/ads/search/${query}`);
-        const data = await response.json();
-        // Actualiza la vista con los resultados de la búsqueda (data)
-        console.log(data);
-        // ... Actualiza la vista con los resultados obtenidos ...
-        createData(data);
-    } catch (error) {
-        console.error(error);
-    }
-};
+      const response = await fetch(`/revisor/ads/search/${query}`);
+      const data = await response.json();
 
+      createData(data);
+      const newUrl = `/revisor/ads/search/${query}`;
+      window.history.pushState({ path: newUrl }, '', newUrl);
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
 export const updateStatusElements = async () => {
     const pendingElement = document.querySelector(".pending");
@@ -84,22 +84,17 @@ const createData  = async (data) => {
 
     // Ocultar el loader
     loader.classList.remove("active");
-
 }
-
 
 const updateTable = async () => {
     
     try {
         const response = await fetch("/revisor/ads");
         const data = await response.json();
-        // Actualizar la vista de la tabla con los nuevos datos
-        console.log(data);
-
         createData(data);
         
     } catch (error) {
-        console.log(error);
+        console.error(error);
         // Ocultar el loader en caso de error
         loader.classList.remove("active");
     }
@@ -143,11 +138,8 @@ export function submit(e) {
         eliminarAnuncio(e);
     }
 
-
-    if(e.target.matches(".menu__panel-form")) {
+    if(e.target.matches("#formAds")) {
         e.preventDefault();
-        console.log(e.target);
-        console.log(e.target.children[0].value);
         searchAds(e.target.children[0].value)
     }
 }

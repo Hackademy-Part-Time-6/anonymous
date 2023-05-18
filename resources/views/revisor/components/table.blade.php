@@ -22,17 +22,17 @@
             <p><b class="approved">Aprobadas</b></p>
 
           </div>
-          {{-- <form action="#" class="menu__panel-form">
+          <form action="#" class="menu__panel-form" id="formAds">
             <input
               type="search"
-              placeholder="Buscar"
+              placeholder="Buscar Anuncios..."
               class="menu__panel-form-input"
             />
             <button
               type="submit"
               class="icon-search menu__panel-button"
             ></button>
-          </form> --}}
+          </form>
         </div>
 
         <div class="table-data">
