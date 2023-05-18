@@ -44,4 +44,9 @@ class Image extends Model
         return self::where('id', $id)->first();
     }
 
+    public function getLabels()
+    {
+        return $this->labels ? $this->labels : [];
+    }
+
 }
