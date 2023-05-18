@@ -14,21 +14,25 @@
             <a href="" class="table-link"><i class="icon-cog table-icon"></i></a>
             <a href="" class="table-link"><i class="icon-archivos table-icon"></i></a>
             <a href="" class="table-link"><i class="icon-adjust table-icon"></i></a> --}}
-            <p><b>Pendientes</b> {{ \App\Models\Ad::ToBeRevisionedCount() }} </p>
-            <p><b>Aprobadas</b> {{ \App\Models\Ad::ApprovedCount() }}</p>
+            {{-- <p><b class="pending">Pendientes</b> {{ \App\Models\Ad::ToBeRevisionedCount() }} </p> --}}
+            <p><b class="pending">Pendientes</b></p>
+
+            {{-- <p><b class="approved">Aprobadas</b> {{ \App\Models\Ad::ApprovedCount() }}</p> --}}
+
+            <p><b class="approved">Aprobadas</b></p>
+
           </div>
-          <form action="#" class="menu__panel-form">
+          {{-- <form action="#" class="menu__panel-form">
             <input
               type="search"
               placeholder="Buscar"
               class="menu__panel-form-input"
-              data-number=""
             />
             <button
               type="submit"
               class="icon-search menu__panel-button"
             ></button>
-          </form>
+          </form> --}}
         </div>
 
         <div class="table-data">
@@ -42,23 +46,24 @@
             <p class="table-data__title center">Eliminar</p>
           </div>
 
-          @if ($ads->isNotEmpty())
-          @foreach ($ads as $ad)
-            <x-table-data 
-              number=" {{ $ad->id }}" 
-              category="{{$ad->category?->name}}"
-              title="{{ $ad->title }}"
-              user="{{ $ad->user?->name }}"
-              estatus="{{$ad->is_accepted}}"
-              editIcon="icon-pencil" 
-              configIcon="icon-cog" 
-            />
+         <div class="table-items">
+            @if ($ads->isNotEmpty())
+            @foreach ($ads as $ad)
+              <x-table-data 
+                  number="{{ $ad->id }}" 
+                  category="{{ $ad->category?->name }}"
+                  title="{{ $ad->title }}"
+                  user="{{ $ad->user?->name }}"
+                  estatus="{{ $ad->is_accepted }}"
+                  editIcon="icon-pencil" 
+                  configIcon="icon-delete" 
+              />
           @endforeach
-        @else
-          <p>No hay anuncios disponibles.</p>
-        @endif
+          @else
+            <p>No hay anuncios disponibles.</p>
+          @endif
+         </div>
         
-
         <div class="table-footer">
           <form action="" class="table-footer__form">
             <label for="">Mostrar</label>

@@ -22,43 +22,73 @@ class RevisorController extends Controller
 */
     public function index()
     {
-        // $ads = Ad::where('is_accepted', true)
-        //         ->orderBy('created_at', 'desc')
-        //         ->get();
-        $ads = Ad::orderBy('created_at', 'asc')
-                ->get();
-        // dd($ads);
+        $ads = Ad::orderBy('created_at', 'asc')->get();
+
         return view('revisor.components.table', compact('ads'));
+    }
+
+    public function indexJSON()
+    {
+        $ads = Ad::orderBy('created_at', 'asc')
+          ->with('user') // Cargar la relación 'user'
+          ->get();
+        return response()->json($ads);
     }
 
     public function accept () {
         $ad = Ad::where('is_accepted', null)
             ->orderBy('created_at', 'desc')
             ->first();
+        // dd($ad);
         return view("revisor.components.accepted", compact('ad'));
     }
 
+    public function searchJSON(Request $request)
+    {
+        $query = $request->input('query');
 
-    public function acceptAd(Ad $ad)
-    {
-        $ad->setAccepted(true);
-        return redirect()->back()->withMessage(['type' => 'success', 'text' => 'Anuncio aceptado']);
-    }
-    public function rejectAd(Ad $ad)
-    {
-        $ad->setAccepted(false);
-        return redirect()->back()->withMessage(['type' => 'danger', 'text' => 'Anuncio rechazado']);
+        $results = Ad::where('title', 'like', '%' . $query . '%')
+        ->orWhere('body', 'like', '%' . $query . '%')
+        ->with('user','images')
+        ->get();
+
+        return response()->json($results);
     }
 
-    public function becomeRevisor()
-    {
-        Mail::to('admin@anonymous.es')->send(new BecomeRevisor(Auth::user()));
-        return redirect()->route('home')->withMessage(['type' => 'success', 'text' => 'Solicitud enviada con éxito, pronto sabrás algo, gracias!']);
-    }
-    public function makeRevisor(User $user)
+        public function acceptAd(Ad $ad)
+        {
+            $ad->setAccepted(true);
+            return redirect()->back()->withMessage(['type' => 'success', 'text' => 'Anuncio aceptado']);
+        }
+        public function rejectAd(Ad $ad)
+        {
+            $ad->setAccepted(false);
+            return redirect()->back()->withMessage(['type' => 'danger', 'text' => 'Anuncio rechazado']);
+        }
+
+        public function becomeRevisor()
+        {
+            Mail::to('admin@anonymous.es')->send(new BecomeRevisor(Auth::user()));
+            return redirect()->route('home')->withMessage(['type' => 'success', 'text' => 'Solicitud enviada con éxito, pronto sabrás algo, gracias!']);
+        }
+        public function makeRevisor(User $user)
         {
             Artisan::call('anonymous:makeUserRevisor',['email'=>$user->email]);
             return redirect()->route('home')->withMessage(['type'=>'success','text'=>'Ya tenemos un compañero más']);
         }
+
+        static public function ApprovedCountJSON()
+        {
+            $count = Ad::where('is_accepted', true)->count();
+            // dd($count);
+            return ($count > 0) ? response()->json(['count'=> $count] ) : response()->json(['message' => 'No hay anuncios aprobados']);
+        }
+
+        static public function PendingCountJSON()
+        {
+            $count = Ad::where('is_accepted', null)->count();
+            // dd($count);
+            return ($count > 0) ? response()->json(['count'=> $count] ) : response()->json(['message' => 'No hay anuncios pendientes']);
+        }  
 }
 

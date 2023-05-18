@@ -69,6 +69,7 @@ class CreateAd extends Component
                 $newImage = $ad->images()->create([
                     'path' => $image->store($newFileName, 'public')
                 ]);
+                // dd($newImage->path);
                 dispatch(new ResizeImage($newImage->path, 400, 300));
                 dispatch(new GoogleVisionSafeSearchImage($newImage->id));
 
