@@ -1,5 +1,6 @@
 @import '~bootstrap/dist/css/bootstrap';
 @import '~flag-icon-css/css/flag-icons';
+@import '~bootstrap-icons/font/bootstrap-icons';
 
 body{
     margin:0;
@@ -41,3 +42,24 @@ textarea {
   justify-content: center;
   min-height: 100vh;
 }
+
+.VERY_UNLIKELY{
+    color: greenyellow
+}
+.UNLIKELY {
+    color: green
+}
+.POSSIBLE {
+    color: orange;
+} 
+.LIKELY {
+    color: orangered;
+} 
+.VERY_LIKELY{
+    color: red;
+}
+.UNKNOWN {
+    color: grey;
+} 
+
+  
