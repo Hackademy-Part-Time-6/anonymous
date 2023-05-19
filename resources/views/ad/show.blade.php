@@ -10,7 +10,7 @@
                                 aria-label="Slide {{ $i + 1 }}"></button>
                         @endfor
                     </div>
-                    <div class="carousel-inner" data-interval="1000">
+                    <div class="carousel-inner">
                         @foreach ($ad->images as $image)
                             <div class="carousel-item @if ($loop->first) active @endif">
                                 <img src="{{ $ad->images->first()->getUrl(400, 300) }}" class="card-img-top"
