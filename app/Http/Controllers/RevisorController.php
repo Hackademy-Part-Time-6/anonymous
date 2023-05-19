@@ -43,14 +43,14 @@ class RevisorController extends Controller
         return view("revisor.components.accepted", compact('ad'));
     }
 
+
     public function searchJSON(Request $request)
     {
         $query = $request->input('query');
 
-        $results = Ad::where('title', 'like', '%' . $query . '%')
-        ->orWhere('body', 'like', '%' . $query . '%')
-        ->with('user','images')
-        ->get();
+        $results = Ad::search($query)
+        -> where ('is_accepted', true)
+        -> get();
 
         return response()->json($results);
     }
