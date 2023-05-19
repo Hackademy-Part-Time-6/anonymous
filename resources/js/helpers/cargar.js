@@ -66,8 +66,10 @@ const cargarColores = (containerId) => {
     )`,
   
     `linear-gradient(
-      pink,
-      violet
+      #bebebe,
+      #969696,
+      #6f6f6f,
+      #484848
     )`,
 
   ];

@@ -3,10 +3,11 @@
         <a href="{{ route('home') }}">
             <img src="{{ asset('./image/logo.png') }}" alt="Logo Anonymous" width="50%" height="24%">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
 
                 <li class="nav-item">
@@ -41,7 +42,8 @@
                         <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdown">
                             @if (Auth::user()->is_revisor)
                                 <li>
-                                    <a class="dropdown-item ref4" href="{{ route('revisor.home') }}" target="_blank" rel="noopener">
+                                    <a class="dropdown-item ref4" href="{{ route('revisor.home') }}" target="_blank"
+                                        rel="noopener">
                                         {{ __('Revisor') }}
                                         <span class="badge rounded-pill bg-danger">
                                             {{ \App\Models\Ad::ToBeRevisionedCount() }}
@@ -64,56 +66,15 @@
                     @endif
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ __('Registrar') }}
-                    </a>
-                    <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdownMenuLink">
 
 
 
-                        {{-- Acciones para registrarse --}}
+                {{-- Acciones para registrarse --}}
 
 
-                        @guest
 
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">
-                                        <span>
-                                            {{ __('Entrar') }}
-                                        </span>
-                                    </a>
-                                </li>
-                            @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">
-                                        <span>
-                                            {{ __('Registrar') }}
-                                        </span>
-                                    </a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item ref4">
-                                <form action="{{ route('logout') }}" id="logoutForm" method="POST">
-                                    @csrf
-                                </form>
-                                <a href="#" id="logoutBtn" class="nav-link">{{ __('Salir') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('ads.create') }}">
-                                    <span>
-                                        {{ __('Crear Anuncio') }}
-                                    </span>
-                                </a>
-                            </li>
-                        @endguest
 
-                    </ul>
                 </li>
 
                 <li class="nav-item">
@@ -127,13 +88,21 @@
                 <li class="nav-item">
                     <x-locale lang="it" country="it" />
                 </li>
-
-
             </ul>
+
+            <div>
+                <a href="{{ route('ads.create') }}" class="btn btn-warning"
+                    style="background-color: #D4AF37;">{{ __('Crear Anuncio') }}</a>
+            </div>
+            <div style="margin: 10px;">
+                <a href="{{ route('register') }}" class="btn btn-warning"
+                    style="background-color: #D4AF37;">{{ __('Registrate') }}</a>
+            </div>
+
         </div>
-        <form action="{{route('search')}}" method="GET" class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
-        <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        <form action="{{ route('search') }}" method="GET" class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
         </form>
     </div>
 

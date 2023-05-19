@@ -651,14 +651,14 @@ button {
 .menu-container-links {
     /* sombras de opciones*/
 
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 25px #ffffff;
     width: 100%;
 }
 
 .menu-container-options {
     display: flex;
     justify-content: space-between;
-    background-color: steelblue;
+    background-color: #6f6f6f;
     color: white;
     padding: 10px;
     font-size: 1rem;
