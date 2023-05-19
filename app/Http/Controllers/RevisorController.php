@@ -50,6 +50,7 @@ class RevisorController extends Controller
 
         $results = Ad::search($query)
         -> where ('is_accepted', true)
+        ->with('user','images')
         -> get();
 
         return response()->json($results);
