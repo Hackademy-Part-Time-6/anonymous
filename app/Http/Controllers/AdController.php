@@ -18,103 +18,105 @@ class AdController extends Controller
         $this->middleware('auth');
     }
 
-    public function create() {
-        return view('ad.create'); 
+    public function create()
+    {
+        return view('ad.create');
     }
 
-    public function show(Ad $ad) {
-        return view('ad.show',compact('ad'));
+    public function show(Ad $ad)
+    {
+        return view('ad.show', compact('ad'));
     }
 
-    public function edit($id){
-        $ad = Ad::where('is_accepted', null)
-            ->where('id', $id)
+    public function edit($id)
+    {
+        $ad = Ad::where('id', $id)
             ->firstOrFail();
 
         return view("revisor.edit", compact('ad'));
     }
 
     public function update(Request $request, $id)
-        {
-            $ad = Ad::findOrFail($id);
+    {
+        $ad = Ad::findOrFail($id);
 
-            // Actualizar campos existentes
-            $ad->title = strtoupper($request->input('title'));
-            $ad->price = strtoupper($request->input('price'));
-            $ad->body = strtoupper($request->input('body'));
-        
-            // Guardar cambios en el modelo
-            $ad->save();
+        // Actualizar campos existentes
+        $ad->title = strtoupper($request->input('title'));
+        $ad->price = strtoupper($request->input('price'));
+        $ad->body = strtoupper($request->input('body'));
 
-            if ($request->has('delete_images')) {
-                $deleteImages = $request->input('delete_images');
+        // Guardar cambios en el modelo
+        $ad->save();
 
-                foreach ($deleteImages as $imageId) {
-                    $image = ImageModel::findOrFail($imageId);
-                    $image->delete(); // Eliminar de la base de datos
+        if ($request->has('delete_images')) {
+            $deleteImages = $request->input('delete_images');
 
-                    // Eliminar del sistema de archivos
-                    if ($image->path && Storage::exists($image->path)) {
-                        Storage::delete($image->path);
-                    }
-                }
-            }
-           
-            if ($request->hasFile('images')) {
-                $this->images = $request->file('images');
-                
-                // Eliminar las imágenes antiguas
-                foreach ($ad->images as $image) {
-                    // Eliminar del sistema de archivos
-                    if ($image->path && Storage::exists($image->path)) {
-                        Storage::delete($image->path);
-            
-                        // Eliminar de la base de datos
-                        $image->delete();
-                    }
-                }
-             // Actualizar la imagen en la base de datos, y en el directorio de archivos 
-                if (count($this->images)) {
-                    $newFileName = "ads/$ad->id";
-                    foreach ($this->images as $image) {
-                        $newImage = $ad->images()->create([
-                            'path' => $image->store($newFileName, 'public')
-                        ]);
-                        dispatch(new ResizeImage($newImage->path, 400, 300));
-                    }
-                    File::deleteDirectory(storage_path('/app/livewire-tmp'));
-                    session()->flash('message', ['type' => 'success', 'text' => 'Anuncio actualizado con éxito']);
-                }else {
-                    session()->flash('message', ['type' => 'danger', 'text' => 'El Anuncio no se actualizo con éxito']);
-                }
-                    
-            }
-            return redirect()->route('revisor.edit',$ad->id);
-        }
+            foreach ($deleteImages as $imageId) {
+                $image = ImageModel::findOrFail($imageId);
+                $image->delete(); // Eliminar de la base de datos
 
-        public function destroy($ad)
-        {
-
-            // return "Hola";
-            $ad = Ad::findOrFail($ad);
-        
-            // Eliminar las imágenes del sistema de archivos
-            foreach ($ad->images as $image) {
+                // Eliminar del sistema de archivos
                 if ($image->path && Storage::exists($image->path)) {
                     Storage::delete($image->path);
                 }
             }
-        
-            // Eliminar el anuncio de la base de datos
-            $ad->delete();
-        
-            // Opcional: Realizar otras acciones o mostrar mensajes de éxito
-        
-            // return redirect()->route('revisor.home')->with('success', 'Anuncio eliminado correctamente');
-
-            return response()->json([
-                'message' => 'Anuncio eliminado correctamente'
-            ]);
         }
-        
+
+        if ($request->hasFile('images')) {
+            $this->images = $request->file('images');
+
+            // Eliminar las imágenes antiguas
+            foreach ($ad->images as $image) {
+                // Eliminar del sistema de archivos
+                if ($image->path && Storage::exists($image->path)) {
+                    Storage::delete($image->path);
+
+                    // Eliminar de la base de datos
+                    $image->delete();
+                }
+            }
+            // Actualizar la imagen en la base de datos, y en el directorio de archivos 
+            if (count($this->images)) {
+                $newFileName = "ads/$ad->id";
+                foreach ($this->images as $image) {
+                    $newImage = $ad->images()->create([
+                        'path' => $image->store($newFileName, 'public')
+                    ]);
+                    dispatch(new ResizeImage($newImage->path, 400, 300));
+                }
+                File::deleteDirectory(storage_path('/app/livewire-tmp'));
+                session()->flash('message', ['type' => 'success', 'text' => 'Anuncio actualizado con éxito']);
+            } else {
+                session()->flash('message', ['type' => 'danger', 'text' => 'El Anuncio no se actualizo con éxito']);
+            }
+
+        }
+        return redirect()->route('revisor.edit', $ad->id);
+    }
+
+    public function destroy($ad)
+    {
+
+        // return "Hola";
+        $ad = Ad::findOrFail($ad);
+
+        // Eliminar las imágenes del sistema de archivos
+        foreach ($ad->images as $image) {
+            if ($image->path && Storage::exists($image->path)) {
+                Storage::delete($image->path);
+            }
+        }
+
+        // Eliminar el anuncio de la base de datos
+        $ad->delete();
+
+        // Opcional: Realizar otras acciones o mostrar mensajes de éxito
+
+        // return redirect()->route('revisor.home')->with('success', 'Anuncio eliminado correctamente');
+
+        return response()->json([
+            'message' => 'Anuncio eliminado correctamente'
+        ]);
+    }
+
 }

@@ -13,8 +13,7 @@
                     <div class="carousel-inner">
                         @foreach ($ad->images as $image)
                             <div class="carousel-item @if ($loop->first) active @endif">
-                                <img src="{{ $ad->images->first()->getUrl(400, 300) }}" class="card-img-top"
-                                    alt="...">
+                                <img src="{{ $image->getUrl(400, 300) }}" class="card-img-top" alt="...">
                             </div>
                         @endforeach
                     </div>
@@ -44,4 +43,5 @@
             </div>
         </div>
     </div>
+
 </x-layout>
