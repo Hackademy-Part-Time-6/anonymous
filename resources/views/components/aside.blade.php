@@ -11,7 +11,7 @@
                 <a href="#" class="menu__link">Pendientes</a>
             </div>
         </div>
-        <div class="menu-container-links">
+        {{-- <div class="menu-container-links">
             <div class="menu-container-options">
                 <p class="menu__option">Opcion - 2</p>
                 <p class="menu__icon">+</p>
@@ -23,7 +23,7 @@
                 <a href="#" class="menu__link">Enlace 4</a>
                 <a href="#" class="menu__link">Enlace 5</a>
             </div>
-        </div>
+        </div> --}}
         <div class="menu-container-links">
             <div class="menu-container-options">
                 <p class="menu__option">Colores Personalizables</p>

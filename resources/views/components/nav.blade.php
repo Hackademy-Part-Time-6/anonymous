@@ -10,9 +10,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="#">{{ __('Dónde estamos') }}</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about-us') }}">{{ __('Quienes somos') }}</a>
                 </li>
@@ -39,7 +39,16 @@
                             aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
+
+                        
+
                         <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item ref4" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                                Mis Anuncios
+                            </a>
+
                             @if (Auth::user()->is_revisor)
                                 <li>
                                     <a class="dropdown-item ref4" href="{{ route('revisor.home') }}" target="_blank"
@@ -66,14 +75,7 @@
                     @endif
                 </li>
 
-
-
-
                 {{-- Acciones para registrarse --}}
-
-
-
-
 
                 </li>
 
@@ -90,18 +92,17 @@
                 </li>
             </ul>
 
-            <div>
-                <a href="{{ route('ads.create') }}" class="btn btn-warning"
-                    style="background-color: #D4AF37;">{{ __('Crear Anuncio') }}</a>
-            </div>
             <div style="margin: 10px;">
-                <a href="{{ route('register') }}" class="btn btn-warning"
-                    style="background-color: #D4AF37;">{{ __('Registrate') }}</a>
+                @if (!auth()->check())
+                    <a href="{{ route('register') }}" class="btn btn-warning" style="background-color: #D4AF37;">
+                        {{ __('Registrate') }}
+                    </a>
+                @endif
             </div>
 
         </div>
-        <form action="{{ route('search') }}" method="GET" class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+        <form action="{{ route('search') }}" method="GET" class="d-flex" role="search" autocomplete="off">
+            <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" name="q">
             <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
         </form>
     </div>

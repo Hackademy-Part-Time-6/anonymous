@@ -15,6 +15,23 @@
     {{ $style ?? '' }}
 </head>
 <body>
+
+    @auth
+    <x-floating-button icon="fab fa-twitter"></x-floating-button>
+    @endauth
+
+    {{-- <div class="container">
+        <div class="circle-menu">
+          <button class="round-button"></button>
+          <div class="options"></i>Editar</a>
+            <a href="#"><i class="far fa-edit"></i></a>
+            <a href="#"><i class="far fa-plus-square"></i></a>
+            <a href="#"><i class="far fa-sync"></i></a>
+          </div>
+        </div>
+      </div> --}}
+      
+
     <x-nav/>
 
 
