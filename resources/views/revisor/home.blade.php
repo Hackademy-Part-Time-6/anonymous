@@ -18,9 +18,9 @@
         <!-- Container de La Cuadricula -->
     <div class="container__panel">
 
-        <div class="loader-container">
+        {{-- <div class="loader-container">
             <div class="loader"></div>
-          </div>
+          </div> --}}
           
 
             {{-- Barra Principal --}}

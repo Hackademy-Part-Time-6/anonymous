@@ -7,12 +7,12 @@
     </div>
     <!-- Formulario de Busqueda -->
     <nav class="menu__panel">
-        <div class="menu__panel-box">
+        {{-- <div class="menu__panel-box">
             <form action="#" class="menu__panel-form">
                 <input type="search" placeholder="Buscar..." class="menu__panel-form-input" />
                 <button type="submit" class="icon-search menu__panel-button"></button>
             </form>
-        </div>
+        </div> --}}
         {{-- <div class="menu__panel-box">
             <button class="icon icon-bell"></button>
             <button class="icon icon-carpeta"></button>
@@ -53,7 +53,7 @@
               <a href="#" class="profile__menu-link">Ayuda</a>
             </li> --}}
                     <li class="profile__menu-item">
-                        <i class="profile__menu-icon">I</i>
+                        <i class="profile__menu-icon bi bi-power"></i>
                         <a id="logoutBtn" class="profile__menu-link" href="#">{{ __('Salir') }}</a>
                     </li>
 

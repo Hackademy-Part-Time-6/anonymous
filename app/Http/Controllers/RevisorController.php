@@ -35,12 +35,13 @@ class RevisorController extends Controller
         return response()->json($ads);
     }
 
-    public function accept () {
-        $ad = Ad::where('is_accepted', null)
-            ->orderBy('created_at', 'desc')
-            ->first();
-        // dd($ad);
-        return view("revisor.components.accepted", compact('ad'));
+    public function accept ($id) {
+            $ad = Ad::where('is_accepted', null)
+            ->find($id);
+        if (!$ad) {
+            // El anuncio no se encontró, puedes manejar el error aquí
+        }
+    return view("revisor.components.accepted", compact('ad'));
     }
 
 
