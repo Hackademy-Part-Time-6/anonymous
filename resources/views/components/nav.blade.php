@@ -101,12 +101,25 @@
             </div>
 
         </div>
+        {{-- boton de buscar --}}
 
 
-        <form action="{{ route('search') }}" method="GET" class="d-flex" role="search" autocomplete="off">
+        <div class="buscar">
+            <form action="{{ route('search') }}" method="GET" class="d-flex" role="search" autocomplete="off">
+                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"
+                    name="q">
+
+                <div class="btn1">
+                    <i class="bi bi-search"></i>
+                </div>
+            </form>
+        </div>
+
+
+        {{-- <form action="{{ route('search') }}" method="GET" class="d-flex" role="search" autocomplete="off">
             <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" name="q">
             <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-        </form>
+        </form> --}}
     </div>
 
 </nav>
