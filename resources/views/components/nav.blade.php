@@ -40,12 +40,12 @@
                             {{ Auth::user()->name }}
                         </a>
 
-                        
+
 
                         <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdown">
 
                             <a class="dropdown-item ref4" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                                aria-expanded="false">
                                 Mis Anuncios
                             </a>
 
@@ -101,6 +101,8 @@
             </div>
 
         </div>
+
+
         <form action="{{ route('search') }}" method="GET" class="d-flex" role="search" autocomplete="off">
             <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" name="q">
             <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
