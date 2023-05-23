@@ -269,3 +269,66 @@ textarea {
 .whatsapp-icon {
   font-size: 13px;
 }
+
+/* movimiento cards */
+
+.cards14{
+  transform: scale(var(--escala, 1));
+  transition: transform 0.25s;
+}
+.cards14:hover{
+  --escala: 1.2;
+  cursor:pointer;
+}
+.what{
+  display: flex;
+  flex-direction: row;
+  padding-left: 24px;
+  align-items: center;
+}
+
+/* boton comprar */
+
+.cmp{
+  width: 9em;
+  height: 3em;
+  border-radius: 30em;
+  font-size: 15px;
+  font-family: inherit;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 6px 6px 12 px #f70404,
+  -6px -6px 12px #ffffff;
+  color: #ffffff;
+}
+
+.cmp::before{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3em;
+  border-radius: 30em;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #535353 0%,#fcef07 100%);
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.cmp:hover::before{
+  width: 9em;
+}
+
+/* linea separadora */
+
+.separator {
+  width: 100%;
+  height: 2px;
+  background-color: red;
+  border: none;
+  margin: 0;
+}

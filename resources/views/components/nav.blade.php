@@ -17,11 +17,9 @@
                     <a class="nav-link" href="{{ route('about-us') }}">{{ __('Quienes somos') }}</a>
                 </li>
 
-                <li class="nav-item dropdown mx-2">
+                <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle item_nav" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        {{ __('Categorías') }}
-                    </a>
+                        aria-expanded="false">{{ __('Categorías') }}</a>
                     <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdown">
                         @foreach ($categories as $category)
                             <li>

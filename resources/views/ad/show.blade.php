@@ -32,32 +32,36 @@
                 </div>
             @else
                 <div class="col-12 col-md-6">
-                    <div class="text-center mb-4">
+                    <div class="text-center mb-4 cards14">
                         <img src="{{ $ad->images()->first()->getUrl(400, 300) }}" class="card-img-top" alt="...">
                     </div>
                 </div>
             @endif
             <div class="col-12 col-md-6">
-                <div class="text-center mb-4">
-                    <h2>{{ strtoupper($ad->title) }}</h2>
+                <div class=" mb-4 my-2" style="font-weight: 700">
+                    <h1>{{ strtoupper($ad->title) }}</h1>
                 </div>
-                <h1 class="mb-3 text-center">{{ $ad->price }}€</h1>
-                <h4 class="mb-3"><b>{{ __('Descripción') }}:</b> {{ $ad->body }}</h4>
+                <h2 class="mb-3 ">{{ $ad->price }}€</h2>
+                <p class="mb-3" style="font-size:18px"><b>{{ __('Descripción') }}:</b> {{ $ad->body }}</p>
                 <div class="mb-3"><b>{{ __('Publicado el') }}:</b> {{ $ad->created_at->format('d/m/Y') }}</div>
-                <div class="mb-3"><b>{{ __('Plazo de Envío') }}:</b>
-                    Listo para enviar el <b>{{ \Carbon\Carbon::now()->addDays(2)->format('d/m/Y') }}</b>
+                <div class="mb-3 p-2" style="width: 350px; border: 3px #f9fdfd solid;">
+                    <b>{{ __('Fecha maxima de entrega') }}:</b>
+                    <b>{{ \Carbon\Carbon::now()->addDays(2)->format('d/m/Y') }}</b>
                 </div>
                 <div class="mb-3"><b>{{ __('Por') }}:</b> {{ strtoupper($ad->user?->name) }}</div>
                 <div class="mb-3"><a
                         href="{{ route('category.ads', $ad->category) }}">#{{ $ad->category->name }}</a></div>
                 <div class="d-flex align-items-center">
-                    <a href="#" class="btn btn-danger mr-2">{{ __('Comprar') }}</a>
-                    <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche"
-                        class="whatsapp" target="_blank">
-                        <i class="bi bi-whatsapp"></i>
-                    </a>
-                </div>
+                    <a href="#" class="btn cmp btn-dark"><i class="bi bi-cart4"></i> {{ __('Comprar') }}</a>
+                    <div class="what">
 
+                        <a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche"
+                            class="whatsapp" target="_blank">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <h6 class="mx-2">Contacta por Whatsapp</h6>
+                    </div>
+                </div>
                 <div class="my-3">
                     <i class="bi bi-bag-fill"></i><b> ¡ENVÍO GRATIS!</b><br>
                     Disfruta de tu <b> envío gratuito </b> en compras superiores a 60€.
