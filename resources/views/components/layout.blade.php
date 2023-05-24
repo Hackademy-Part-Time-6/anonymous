@@ -17,7 +17,7 @@
 <body>
 
     @auth
-    <x-floating-button icon="fab fa-twitter"></x-floating-button>
+    <x-floating-button icon="bi bi-plus-square"></x-floating-button>
     @endauth
 
     {{-- <div class="container">

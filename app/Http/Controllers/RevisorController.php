@@ -47,14 +47,22 @@ class RevisorController extends Controller
 
     public function searchJSON(Request $request)
     {
-        $query = $request->input('query');
+        
+        try {
+            $query = $request->input('query');
 
-        $results = Ad::search($query)
-        -> where ('is_accepted', true)
-        ->with('user','images')
-        -> get();
+            $$query = $request->input('query');
 
-        return response()->json($results);
+            $results = Ad::where('title', 'like', '%' . $query . '%')
+            ->with('user', 'images')
+            ->get();
+    
+            return response()->json($results);
+                
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+
     }
 
         public function acceptAd(Ad $ad)

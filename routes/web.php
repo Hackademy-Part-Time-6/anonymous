@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -68,4 +69,12 @@ Route::get("/search", [PublicController::class,'search'])->name('search');
 Route::get('/quienes-somos', function () {
     return view('about-us');
 })->name('about-us');
+
+Route::get('/mis-anuncios', [UserController::class,'getAds'])->name('user.ads');
+
+Route::get('/ads/edit/{ad}', [UserController::class,'editAd'])->name('user.ads.edit');
+
+Route::put('/ads/edit/{ad}', [UserController::class,'updateAd'])->name('user.ads.update');
+
+Route::delete('/ads/delete/{ad}', [UserController::class,'destroyAd'])->name('user.ads.destroy');
 

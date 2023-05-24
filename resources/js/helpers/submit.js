@@ -39,12 +39,12 @@ export const updateStatusElements = async () => {
 
 const createData  = async (data) => {
     const tabla = document.querySelector(".table-items");
-    const loader = document.querySelector(".loader");
+    // const loader = document.querySelector(".loader");
 
     let html = "";
     tabla.innerHTML = "";
 
-    loader.classList.add("active");
+    // loader.classList.add("active");
 
     data.forEach((elemento) => {
         html += `
@@ -83,7 +83,7 @@ const createData  = async (data) => {
     tabla.innerHTML = html;
 
     // Ocultar el loader
-    loader.classList.remove("active");
+    // loader.classList.remove("active");
 }
 
 const updateTable = async () => {

@@ -134,7 +134,7 @@ textarea {
     right: 20px;
     width: 50px;
     height: 50px;
-    background-color: #1DA1F2;
+    background-color: #0dcf88;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -145,10 +145,17 @@ textarea {
 }
 
 .floating-button:hover {
-    background-color: #0D8ECF;
+    background-color: #29512c;
 }
 
 .floating-button .icon {
     color: #fff;
     font-size: 24px;
+}
+
+.card-footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
 }

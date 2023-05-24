@@ -44,8 +44,7 @@
 
                         <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdown">
 
-                            <a class="dropdown-item ref4" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                            <a class="dropdown-item ref4" href="{{route('user.ads')}}">
                                 Mis Anuncios
                             </a>
 

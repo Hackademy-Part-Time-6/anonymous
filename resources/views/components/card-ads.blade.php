@@ -2,7 +2,7 @@
     <div class="card h-100 rentik-card">
         <div class="card-image">
             @if ($ad->images->count() > 0)
-                <img src="{{ $ad->images->first()->getUrl(400, 300) }}" class="card-img-top rentik-card-img" alt="{{$ad->title}}">
+                <img src="{{ $ad->images->first()->getUrl(400, 300) }}" class="card-img-top rentik-card-img" alt="{{ $ad->title }}">
             @else
                 <img src="https://via.placeholder.com/150" class="card-img-top rentik-card-img" alt="...">
             @endif
@@ -21,8 +21,17 @@
                 <small><b>{{ $ad->user?->name }}</b></small>
             </div>
         </div>
-        <div class="card-footer d-flex justify-content-center rentik-card-footer">
+        <div class="card-footer d-flex justify-content-space-between rentik-card-footer">
             <a href="{{ route('ads.show', $ad) }}" class="btn rentik-card-btn">{{ __('Mostrar Más') }}</a>
+
+            @if (Auth::check() && $ad->user_id === Auth::user()->id)
+                <a href="{{ route('user.ads.edit', $ad) }}" class="btn rentik-card-btn"><i class="bi bi-pencil"></i></a>
+                <form action="{{ route('user.ads.destroy', $ad) }}" method="POST" class="d-inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn rentik-card-btn"><i class="bi bi-trash3-fill"></i></button>
+                </form>
+            @endif
         </div>
     </div>
 </div>

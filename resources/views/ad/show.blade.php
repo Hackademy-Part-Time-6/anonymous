@@ -33,7 +33,8 @@
             @else
             <div class="col-12 col-md-6">
                 <div class="text-center mb-4">
-                    <img src="{{ $ad->images()->first()->getUrl(400, 300) }}" class="card-img-top" alt="...">
+                    <img src="{{ $ad->images()->first() ? $ad->images()->first()->getUrl(400, 300) : 'https://via.placeholder.com/150' }}" class="card-img-top" alt="{{$ad->title}}">
+
                 </div>
             </div>
             @endif
