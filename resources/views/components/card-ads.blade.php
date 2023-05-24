@@ -3,8 +3,6 @@
         <div class="card-image">
             @if ($ad->images->count() > 0)
                 <img src="{{ $ad->images->first()->getUrl(400, 300) }}" class="card-img-top rentik-card-img" alt="{{ $ad->title }}">
-                <img src="{{ $ad->images->first()->getUrl(400, 300) }}" class="card-img-top rentik-card-img"
-                    alt="{{ $ad->title }}">
             @else
                 <img src="https://via.placeholder.com/150" class="card-img-top rentik-card-img" alt="...">
             @endif
