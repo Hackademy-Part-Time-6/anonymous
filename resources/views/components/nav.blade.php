@@ -8,7 +8,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav list">
 
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="#">{{ __('Dónde estamos') }}</a>
@@ -16,12 +16,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about-us') }}">{{ __('Quienes somos') }}</a>
                 </li>
-                <!--Visualizar las categorías en la navbar da error-->
-                <li class="nav-item dropdown mx-2">
+
+                <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle item_nav" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        {{ __('Categorías') }}
-                    </a>
+                        aria-expanded="false">{{ __('Categorías') }}</a>
                     <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdown">
                         @foreach ($categories as $category)
                             <li>
@@ -40,11 +38,13 @@
                             {{ Auth::user()->name }}
                         </a>
 
-                        
+
 
                         <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdown">
 
                             <a class="dropdown-item ref4" href="{{route('user.ads')}}">
+                            <a class="dropdown-item ref4" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 Mis Anuncios
                             </a>
 
@@ -76,34 +76,69 @@
 
                 {{-- Acciones para registrarse --}}
 
-                </li>
+
 
                 <li class="nav-item">
-                    <x-locale lang="es" country="es" />
-                </li>
-
-                <li class="nav-item">
-                    <x-locale lang="en" country="gb" />
-                </li>
-
-                <li class="nav-item">
-                    <x-locale lang="it" country="it" />
-                </li>
-            </ul>
-
-            <div style="margin: 10px;">
-                @if (!auth()->check())
-                    <a href="{{ route('register') }}" class="btn btn-warning" style="background-color: #D4AF37;">
-                        {{ __('Registrate') }}
+                    <a href="#" class="nav-link" id="localeDropdown">
+                        <i class="bi bi-globe bi-5x"></i>
                     </a>
-                @endif
-            </div>
+                </li>
 
-        </div>
-        <form action="{{ route('search') }}" method="GET" class="d-flex" role="search" autocomplete="off">
+                <!-- Código a mostrar/ocultar -->
+                <div id="localeCode" style="display: none;">
+                    <ul class="locale-list">
+                        <li class="nav-item">
+                            <x-locale lang="es" country="es" />
+                        </li>
+
+                        <li class="nav-item">
+                            <x-locale lang="en" country="gb" />
+                        </li>
+
+                        <li class="nav-item">
+                            <x-locale lang="it" country="it" />
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="margin: 10px;">
+                    @if (!auth()->check())
+                        <a href="{{ route('register') }}" class="btn btn-warning" style="background-color: #D4AF37;">
+                            {{ __('Registrate') }}
+                        </a>
+                    @endif
+                </div>
+                {{-- boton de buscar --}}
+
+
+                <div class="buscar">
+                    <form action="{{ route('search') }}" method="GET" class="d-flex" role="search"
+                        autocomplete="off">
+                        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"
+                            name="q">
+
+                        <div class="btn1">
+                            <i class="bi bi-search"></i>
+                        </div>
+                    </form>
+                </div>
+
+
+                {{-- <form action="{{ route('search') }}" method="GET" class="d-flex" role="search" autocomplete="off">
             <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" name="q">
             <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-        </form>
-    </div>
+        </form> --}}
+        </div>
 
 </nav>
+
+<script>
+    document.getElementById('localeDropdown').addEventListener('click', function() {
+        var localeCode = document.getElementById('localeCode');
+        if (localeCode.style.display === 'none') {
+            localeCode.style.display = 'block';
+        } else {
+            localeCode.style.display = 'none';
+        }
+    });
+</script>

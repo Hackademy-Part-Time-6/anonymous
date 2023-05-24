@@ -3,6 +3,8 @@
         <div class="card-image">
             @if ($ad->images->count() > 0)
                 <img src="{{ $ad->images->first()->getUrl(400, 300) }}" class="card-img-top rentik-card-img" alt="{{ $ad->title }}">
+                <img src="{{ $ad->images->first()->getUrl(400, 300) }}" class="card-img-top rentik-card-img"
+                    alt="{{ $ad->title }}">
             @else
                 <img src="https://via.placeholder.com/150" class="card-img-top rentik-card-img" alt="...">
             @endif
@@ -13,7 +15,7 @@
             <p class="card-text rentik-card-description">{{ $ad->body }}</p>
             <div class="card-category rentik-card-category">
                 <strong>
-                    <a href="{{ route('category.ads', $ad->category_id) }}">#{{ $ad->category->name }}</a>
+                    <a href="{{ route('category.ads', $ad->category) }}">#{{ $ad->category->name }}</a>
                 </strong>
                 <div class="rentik-card-date">{{ __('Publicado') }}: {{ $ad->created_at->format('d/m/Y') }}</div>
             </div>

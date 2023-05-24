@@ -12,7 +12,7 @@ class PublicController extends Controller
     {
         // $ads = Ad::where('is_accepted', true)->orderBy('created_at', 'desc')->take(6)->get();
         $ads = Ad::orderBy('created_at', 'asc')
-                ->get();
+            ->get();
         $category = Category::orderBy('created_at')->take(6)->get();
         // dd($ads);
         return view('welcome', compact('ads', 'category'));
@@ -22,7 +22,7 @@ class PublicController extends Controller
 
     public function adsByCategory(Category $category)
     {
-        $ads = $category->ads()->where('is_accepted', true)->latest()->paginate(1);
+        $ads = $category->ads()->where('is_accepted', true)->latest()->paginate(4);
         return view('ad.by-category', compact('category', 'ads'));
     }
 
@@ -38,8 +38,8 @@ class PublicController extends Controller
     {
         $q = $request->input('q');
         $ads = Ad::search($q)
-        -> where ('is_accepted', true)
-        -> get();
+            ->where('is_accepted', true)
+            ->get();
         return view('search_results', compact('q', 'ads'));
     }
 

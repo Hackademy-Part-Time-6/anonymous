@@ -10,7 +10,7 @@
 
         <div class="mb-3">
 
-            <label for="title" class="form-label"> {{ __('Titulo') }}:</label>
+            <label for="title" class="form-label font-weight-bold"> {{ __('Titulo') }}:</label>
 
             <input wire:model="title" type="text" class="form-control @error('title') is-invalid @enderror">
 
@@ -56,29 +56,32 @@
 
 
         <div class="mb-3">
-            <input wire:model="temporary_images" type="file" name="images" multiple class="form-control shadow @error('temporary_images.*') is-invalid @enderror">
+            <input wire:model="temporary_images" type="file" name="images" multiple
+                class="form-control shadow @error('temporary_images.*') is-invalid @enderror">
             @error('temporary_images.*')
-                <p class="text-danger mt-2">{{$message}}</p>
+                <p class="text-danger mt-2">{{ $message }}</p>
             @enderror
         </div>
 
-        @if(!empty($images))
-        <div class="row">
-            <div class="col-12">
-                <p>{{__('Vista previa')}}:</p>
-                <div class="row">
-                    @foreach ($images as $key=>$image)
-                        <div class="col-12 col-md-4">
-                            <img src="{{$image->temporaryUrl()}}" alt="" class="img-fluid">
-                            <button type="button" class="btn btn-danger" wire:click="removeImage({{$key}})">Eliminar</button>
-                        </div>
-                    @endforeach
+        @if (!empty($images))
+            <div class="row">
+                <div class="col-12">
+                    <p>{{ __('Vista previa') }}:</p>
+                    <div class="row">
+                        @foreach ($images as $key => $image)
+                            <div class="col-12 col-md-4">
+                                <img src="{{ $image->temporaryUrl() }}" alt="" class="img-fluid">
+                                <button type="button" class="btn btn-danger my-3"
+                                    wire:click="removeImage({{ $key }})">Eliminar</button>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
         @endif
-        
-        <button type="submit" class="btn bg-warning">{{ __('Crear') }}</button>
+        <div class="text-center">
+            <button type="submit" class="btn bg-warning my-3 cmp">{{ __('Crear') }}</button>
+        </div>
     </form>
 
 </div>
