@@ -60,12 +60,13 @@
                             class="whatsapp" target="_blank">
                             <i class="bi bi-whatsapp"></i>
                         </a>
-                        <h6 class="mx-2">Contacta por Whatsapp</h6>
+                        <h6 class="mx-2">{{ __('Contacta por Whatsapp') }}</h6>
                     </div>
                 </div>
                 <div class="my-3">
-                    <i class="bi bi-bag-fill"></i><b> ¡ENVÍO GRATIS!</b><br>
-                    Disfruta de tu <b> envío gratuito </b> en compras superiores a 60€.
+                    <i class="bi bi-bag-fill"></i><b>{{ __('¡ENVÍO GRATIS!') }} </b><br>
+                    {{ __('Disfruta de tu') }} <b> {{ __('envío gratuito ') }} </b>
+                    {{ __('en compras superiores a 60€.') }}
                 </div>
             </div>
 
