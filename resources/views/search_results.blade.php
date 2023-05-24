@@ -24,7 +24,7 @@
                         <p class="card-text">{{ $ad->body }}</p>
                         <div class="card-subtitle mb-2">
                             <strong>
-                                <a href="{{ route('category.ads', $ad->category_id) }}">#{{ $ad->category->name }}</a>
+                                <a href="{{ route('category.ads', $ad->category) }}">#{{ $ad->category->name }}</a>
                             </strong>
                             <div>{{ __('Publicado') }}: {{ $ad->created_at->format('d/m/Y') }}</div>
                         </div>

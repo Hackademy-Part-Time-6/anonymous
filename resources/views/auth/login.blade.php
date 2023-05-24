@@ -9,16 +9,9 @@
                 <div class="text-center my-1">
                     <img src="{{ asset('./image/login.gif') }}" alt="">
                 </div>
-                {{-- Additional Text --}}
-                <p>
-                    Como nuevo usuario registrado, queremos asegurarnos de que aproveche al máximo su experiencia en
-                    nuestra
-                    tienda en línea. Al registrarse, podrá acceder a una amplia gama de servicios y beneficios
-                    exclusivos que
-                    mejorarán su proceso de compra.
-                </p>
+
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 my-5">
                 <div class="text-center ">
                     {{-- Form Title --}}
                     <h2 class="form-title space-around">{{ __('Iniciar sesión') }}</h2>

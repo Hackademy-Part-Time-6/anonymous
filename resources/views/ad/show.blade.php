@@ -11,7 +11,7 @@
                                     aria-label="Slide {{ $i + 1 }}"></button>
                             @endfor
                         </div>
-                        <div class="carousel-inner">
+                        <div class="carousel-inner border border-3 border-warning rounded-top">
                             @foreach ($ad->images as $image)
                                 <div class="carousel-item @if ($loop->first) active @endif">
                                     <img src="{{ $image->getUrl(400, 300) }}" class="card-img-top" alt="...">
@@ -49,8 +49,9 @@
                     <b>{{ \Carbon\Carbon::now()->addDays(2)->format('d/m/Y') }}</b>
                 </div>
                 <div class="mb-3"><b>{{ __('Por') }}:</b> {{ strtoupper($ad->user?->name) }}</div>
-                <div class="mb-3"><a
-                        href="{{ route('category.ads', $ad->category) }}">#{{ $ad->category->name }}</a></div>
+                <div class="mb-3">
+                    <a href="{{ route('category.ads', $ad->category) }}">#{{ $ad->category->name }}</a>
+                </div>
                 <div class="d-flex align-items-center">
                     <a href="#" class="btn cmp btn-dark"><i class="bi bi-cart4"></i> {{ __('Comprar') }}</a>
                     <div class="what">

@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot name="title">Anonymous - Registro</x-slot>
     <!-- ===== REGISTER ===== -->
-    <div class="container-fluid bg-accent vh-100">
+    <div class="container mt-4 mb-5">
         <div class="row p-5 d-flex justify-content-center align-items-center">
             <!-- Imagen -->
             <div class="col-md-6 text-center">
@@ -62,12 +62,13 @@
                             </div>
                         </form>
                         <div class="form-link d-flex justify-content-center my-3">
-                            <p class="text-dark mt-2">{{ __('¿Ya eres de los nuestros?') }}</p>
-                            <a class="btn btn-info btn-sm ms-2" href="{{ route('login') }}">
-                                <b><button type="button"
-                                        class="btn btn-outline-dark">{{ __('¡Entra ya!') }}</button></b>
+                            <p class="text-dark mt-2 my-3">{{ __('¿Ya eres de los nuestros?') }}</p>
+                            <a href="{{ route('login') }}" type="submit"
+                                class="form-button-edit text-center space-around my-3 mt-3 btn bg-warning">
+                                {{ __('Entrar') }}
                             </a>
                         </div>
+
                     </div>
                 </div>
             </div>
