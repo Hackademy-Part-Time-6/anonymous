@@ -14,7 +14,7 @@
                     <a class="nav-link" href="#">{{ __('Dónde estamos') }}</a>
                 </li> --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about-us') }}">{{ __('Quienes somos') }}</a>
+                    <a class="nav-link" href="{{ route('about-us') }}">{{ __('Quienes soy') }}</a>
                 </li>
 
                 <li class="nav-item dropdown ">
