@@ -71,4 +71,5 @@
       <a class="text-white" href="{{ route('home') }}">Anonymuos.com</a>
     </div>
     <!-- Copyright -->
+  
   </footer>

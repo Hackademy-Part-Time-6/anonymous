@@ -24,4 +24,12 @@ class PublicController extends Controller
         return view('ad.by-category', compact('category', 'ads'));
     }
 
+
+    public function setLocale($locale)
+    {
+        session()->put('locale', $locale);
+
+        return redirect()->back();
+    }
+
 }
