@@ -31,28 +31,31 @@ class BecomeRevisor extends Mailable
      */
     public function build()
     {
-        return $this->from('rapido.revisor@noreply.es')->view('mail.become-revisor');
+        return $this->from('anonymous.revisor@noreply.es')->view('mail.become-revisor');
     }
 
     /**
      * Get the message envelope.
      */
-    public function envelope(): Envelope
+    /*
+     public function envelope(): Envelope
     {
         return new Envelope(
             subject: 'Become Revisor',
         );
     }
-
+    */
     /**
      * Get the message content definition.
      */
-    public function content(): Content
+    /*
+     public function content(): Content
     {
         return new Content(
             view: 'welcome',
         );
     }
+    */
 
     /**
      * Get the attachments for the message.

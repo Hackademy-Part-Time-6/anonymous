@@ -15,12 +15,30 @@
     {{ $style ?? '' }}
 </head>
 <body>
+
+    @auth
+    <x-floating-button icon="bi bi-plus-square"></x-floating-button>
+    @endauth
+
+    {{-- <div class="container">
+        <div class="circle-menu">
+          <button class="round-button"></button>
+          <div class="options"></i>Editar</a>
+            <a href="#"><i class="far fa-edit"></i></a>
+            <a href="#"><i class="far fa-plus-square"></i></a>
+            <a href="#"><i class="far fa-sync"></i></a>
+          </div>
+        </div>
+      </div> --}}
+      
+
     <x-nav/>
 
 
-    @if (session()->has('message'))
-        <x-message :message="session('message')['text']"  color="error"/>
+    @if (!is_null(session('message')))
+        <x-message :message="session('message')['text']" color="error"/>
     @endif
+
 
     {{ $slot }}
     <x-footer/>

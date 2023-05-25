@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,22 @@ Route::get('/ads/{ad}', [AdController::class, 'show'])->name('ads.show');
 
 Route::middleware(['isRevisor'])->group(function () {
     Route::get('/revisor', [RevisorController::class, 'index'])->name('revisor.home');
+    Route::get('/revisor/ads', [RevisorController::class, 'indexJSON'])->name('revisor.json');
+    Route::get('/revisor/ad/accept/{ad}', [RevisorController::class, 'accept'])->name('revisor.aprobate');
+
+    
+    Route::get('/revisor/aprobate',[RevisorController::class,'ApprovedCountJSON'])->name('revisor.aprobate.count');
+
+    Route::get('/revisor/pending',[RevisorController::class,'PendingCountJSON'])->name('revisor.pending.count');
+
+    Route::get('/revisor/ads/edit/{ad}', [AdController::class, 'edit'])->name('revisor.edit');
+    Route::post('/revisor/ads/edit/{ad}', [AdController::class, 'update'])->name('ads.update');
+
+    Route::delete('/revisor/ads/delete/{ad}',[AdController::class,'destroy'])->name('revisor.delete');
+
+
+    Route::get('/revisor/ads/search/{query}', [RevisorController::class, 'searchJSON'])->name('revisor.search');
+
     Route::patch('/revisor/ad/{ad}/accept', [RevisorController::class, 'acceptAd'])->name('revisor.ad.accept');
     Route::patch('/revisor/ad/{ad}/reject', [RevisorController::class, 'rejectAd'])->name('revisor.ad.reject');
 });
@@ -47,9 +64,17 @@ Route::get('/revisor/become', [RevisorController::class, 'becomeRevisor'])->midd
 Route::get('revisor/{user}/make', [RevisorController::class, 'makeRevisor'])->middleware('auth')->name('revisor.make');
 
 Route::post('/locale/{locale}', [PublicController::class, 'setLocale'])->name('locale.set');
-// Route::get('/revisor',[RevisorController::class,'index'] )->name('revisor.home');
+Route::get("/search", [PublicController::class,'search'])->name('search');
 
+Route::get('/quienes-somos', function () {
+    return view('about-us');
+})->name('about-us');
 
-// Route::patch('/revisor/ad/{ad}/accept',[RevisorController::class,'acceptAd'])->name('revisor.ad.accept');
+Route::get('/mis-anuncios', [UserController::class,'getAds'])->name('user.ads');
 
-// Route::patch('/revisor/ad/{ad}/reject',[RevisorController::class,'rejectAd'])->name('revisor.ad.reject');
+Route::get('/ads/edit/{ad}', [UserController::class,'editAd'])->name('user.ads.edit');
+
+Route::put('/ads/edit/{ad}', [UserController::class,'updateAd'])->name('user.ads.update');
+
+Route::delete('/ads/delete/{ad}', [UserController::class,'destroyAd'])->name('user.ads.destroy');
+

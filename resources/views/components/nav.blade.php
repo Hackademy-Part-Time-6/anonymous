@@ -3,33 +3,28 @@
         <a href="{{ route('home') }}">
             <img src="{{ asset('./image/logo.png') }}" alt="Logo Anonymous" width="50%" height="24%">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
-            <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav list">
+
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="#">{{ __('Dónde estamos') }}</a>
+                </li> --}}
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page"
-                        href="{{ route('home') }}">{{ __('messages.home') }}</a>
+                    <a class="nav-link" href="{{ route('about-us') }}">{{ __('Quienes somos') }}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{{ __('messages.about') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{{ __('messages.where') }}</a>
-                </li>
-                <!--Visualizar las categorías en la navbar da error-->
-                <li class="nav-item dropdown mx-2">
+
+                <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle item_nav" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        {{ __('messages.categories') }}
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        aria-expanded="false">{{ __('Categorías') }}</a>
+                    <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdown">
                         @foreach ($categories as $category)
                             <li>
-                                <a class="dropdown-item"
-                                    href="{{ route('category.ads', $category) }}">{{ $category->name }}</a>
+                                <a class="dropdown-item ref4"
+                                    href="{{ route('category.ads', $category) }}">{{ __($category->name) }}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -42,11 +37,22 @@
                             aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+
+                        <ul class="dropdown-menu ref4" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item ref4" href="{{route('user.ads')}}">
+                            <a class="dropdown-item ref4" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Mis Anuncios
+                            </a>
+
                             @if (Auth::user()->is_revisor)
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('revisor.home') }}">
-                                        Revisor
+                                    <a class="dropdown-item ref4" href="{{ route('revisor.home') }}" target="_blank"
+                                        rel="noopener">
+                                        {{ __('Revisor') }}
                                         <span class="badge rounded-pill bg-danger">
                                             {{ \App\Models\Ad::ToBeRevisionedCount() }}
                                         </span>
@@ -60,80 +66,79 @@
                                 <form id="logoutForm" action="{{ route('logout') }}" method="POST">
                                     @csrf
                                 </form>
-                                <a id="logoutBtn" class="dropdown-item" href="#">Salir</a>
+                                <a id="logoutBtn" class="dropdown-item ref4" href="#">{{ __('Salir') }}</a>
                             </li>
                         </ul>
                     @else
-                        <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                     @endif
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Login
+                {{-- Acciones para registrarse --}}
+
+
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="localeDropdown">
+                        <i class="bi bi-globe bi-5x"></i>
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                </li>
 
+                <!-- Código a mostrar/ocultar -->
+                <div id="localeCode" style="display: none;">
+                    <ul class="locale-list">
+                        <li class="nav-item">
+                            <x-locale lang="es" country="es" />
+                        </li>
 
+                        <li class="nav-item">
+                            <x-locale lang="en" country="gb" />
+                        </li>
 
-                        {{-- Acciones para registrarse --}}
-
-
-                        @guest
-
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">
-                                        <span>
-                                            Entrar
-                                        </span>
-                                    </a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">
-                                        <span>
-                                            Registrar
-                                        </span>
-                                    </a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item">
-                                <form action="{{ route('logout') }}" id="logoutForm" method="POST">
-                                    @csrf
-                                </form>
-                                <a href="#" id="logoutBtn" class="nav-link">Salir</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('ads.create') }}">
-                                    <span>
-                                        Crear Anuncio
-                                    </span>
-                                </a>
-                            </li>
-                        @endguest
-
+                        <li class="nav-item">
+                            <x-locale lang="it" country="it" />
+                        </li>
                     </ul>
-                </li>
+                </div>
 
-                <li class="nav-item">
-                    <x-locale lang="es" country="es" />
-                </li>
-
-                <li class="nav-item">
-                    <x-locale lang="en" country="gb" />
-                </li>
-
-                <li class="nav-item">
-                    <x-locale lang="it" country="it" />
-                </li>
+                <div style="margin: 10px;">
+                    @if (!auth()->check())
+                        <a href="{{ route('register') }}" class="btn btn-warning" style="background-color: #D4AF37;">
+                            {{ __('Registrate') }}
+                        </a>
+                    @endif
+                </div>
+                {{-- boton de buscar --}}
 
 
-            </ul>
+                <div class="buscar">
+                    <form action="{{ route('search') }}" method="GET" class="d-flex" role="search"
+                        autocomplete="off">
+                        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"
+                            name="q">
+
+                        <div class="btn1">
+                            <i class="bi bi-search"></i>
+                        </div>
+                    </form>
+                </div>
+
+
+                {{-- <form action="{{ route('search') }}" method="GET" class="d-flex" role="search" autocomplete="off">
+            <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" name="q">
+            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        </form> --}}
         </div>
-    </div>
+
 </nav>
+
+<script>
+    document.getElementById('localeDropdown').addEventListener('click', function() {
+        var localeCode = document.getElementById('localeCode');
+        if (localeCode.style.display === 'none') {
+            localeCode.style.display = 'block';
+        } else {
+            localeCode.style.display = 'none';
+        }
+    });
+</script>

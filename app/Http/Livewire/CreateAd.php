@@ -2,17 +2,34 @@
 
 namespace App\Http\Livewire;
 
+use App\Jobs\GoogleVisionLabelImage;
+use App\Jobs\GoogleVisionSafeSearchImage;
 use App\Models\Ad;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use App\Jobs\ResizeImage;
+use Illuminate\Support\Facades\File;
+use App\Jobs\GoogleVisionRemoveFaces;
+
+
+
 
 class CreateAd extends Component
 {
+    use WithFileUploads;
+
     public string $title;
     public string $body;
     public $price;
     public $category;
+
+    public $images = [];
+    public $temporary_images;
+    public $image;
 
     protected $rules = [
         'title' => 'required|min:4',
@@ -25,25 +42,53 @@ class CreateAd extends Component
         'required' => 'El campo es requerido por favor rellenelo',
         'min' => 'El campo necesita un minimo requerido',
         'numeric' => 'El campo es numerico ingrese numeros',
+
+        'temporary_images.required' => 'La imagen es obligatoria',
+        'temporary_images.*.image' => 'Los archivos tienen que ser imagenes',
+        'temporary_images.*.max' => 'La imagen supera los :max mb',
+        'images.image' => 'El archivo tiene que ser una imagen',
+        'images.max' => 'La imagen supera los :max mb',
     ];
+
 
     public function store()
     {
+        // datos validados
+        $validatedData = $this->validate();
+        // busco la categoria
         $category = Category::find($this->category);
-        $ad = $category->ads()->create([
-            'title' => strtoupper($this->title),
-            'body' => strtoupper($this->body),
-            'price' => $this->price,
-        ]);
-        
-        //Auth::user()->Ad::ads()->save($ad);
 
+        // creo el anuncio a partir de la categoria usando la relacion y pasando los datos validados
+        $ad = $category->ads()->create($validatedData);
+
+        // vuelvo a guardar el anuncio "pasando" por la relacion del usuario
         Auth::user()->ads()->save($ad);
+        // guardo cada imagen en el db y en el storage
+        if (count($this->images)) {
+            $newFileName = "ads/$ad->id";
+            foreach ($this->images as $image) {
+                $newImage = $ad->images()->create([
+                    'path' => $image->store($newFileName, 'public')
+                ]);
+                // dd($newImage->path)
+                dispatch(new GoogleVisionRemoveFaces($newImage->id));
+                dispatch(new ResizeImage($newImage->path, 400, 300));
+                dispatch(new GoogleVisionSafeSearchImage($newImage->id));
+                dispatch(new GoogleVisionLabelImage($newImage->id));
+            }
+            File::deleteDirectory(storage_path('/app/livewire-tmp'));
+        }
 
-        session()->flash('message', 'Anuncio creado con èxito');
+        session()->flash('message', ['type' => 'success', 'text' => 'Ad created successfully']);
         $this->cleanForm();
-        //return redirect()->route('ads.index');
     }
+
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
 
     public function cleanForm()
     {
@@ -51,15 +96,34 @@ class CreateAd extends Component
         $this->body = "";
         $this->category = "";
         $this->price = "";
+        $this->images = [];
     }
 
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-    }
 
     public function render()
     {
         return view('livewire.create-ad');
+    }
+
+
+    public function removeImage($key)
+    {
+        if (in_array($key, array_keys($this->images))) {
+            unset($this->images[$key]);
+        }
+    }
+
+
+    public function updatedTemporaryImages()
+    {
+        if (
+            $this->validate([
+                'temporary_images.*' => 'image|max:2048'
+            ])
+        ) {
+            foreach ($this->temporary_images as $image) {
+                $this->images[] = $image;
+            }
+        }
     }
 }
